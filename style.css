@@ -12,11 +12,11 @@ td:first-child, th {
     color: #010101 !important;
     font-size: 2.2rem; 
     font-weight: 700; }
-b, strong, a, a * { color: #ffd27a !important; }
+b, strong, a, a * { color: #2C4251 !important; }
 i, em { color: #dbe5f8 !important; }
 a:hover { color: #fff !important; }
 button, input[type=button] {
-  color: #151a3d !important; background: #ffd27a; text-shadow: none;
+  color: #151a3d !important; background: #8B94A3; text-shadow: none;
   font-weight: 600; border: 0; border-radius: 8px; padding: .35rem .9rem;
 }
 input:not([type=button]), textarea, select {
