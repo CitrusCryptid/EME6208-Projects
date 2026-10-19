@@ -1,17 +1,21 @@
 body {
   background: url("https://www.ecologyasia.com/images-ab/agile-gibbon_3644.jpg") center / cover fixed no-repeat;
-  font: 1.05rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
+  font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
 }
 body, body * {
   color: #f2f6ff !important;
   font-family: inherit !important;
+  font-size: inherit;
   text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
 }
-td:first-child, th { font-size: 1.25rem; font-weight: 700; }
+td:first-child, th { font-size: 2.2rem; font-weight: 700; }
 b, strong, a, a * { color: #ffd27a !important; }
 i, em { color: #dbe5f8 !important; }
 a:hover { color: #fff !important; }
 button, input[type=button] {
   color: #151a3d !important; background: #ffd27a; text-shadow: none;
   font-weight: 600; border: 0; border-radius: 8px; padding: .35rem .9rem;
+}
+input:not([type=button]), textarea, select {
+  color: #000 !important; background: #fff; text-shadow: none;
 }
