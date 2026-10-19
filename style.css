@@ -7,22 +7,17 @@
 }
 
 /* Full-screen background */
+```css
 body {
+    margin: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
 
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-        url("Gibbon.jpg");
-
+    background-image: url("gibbon.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    color: white;
 }
-
+```
 /* Basic content container */
 .container {
     min-height: 100vh;
