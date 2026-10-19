@@ -1,5 +1,3 @@
-```css
-/* Remove default browser spacing */
 * {
     margin: 0;
     padding: 0;
@@ -121,9 +119,6 @@ input[type="checkbox"],
 input[type="radio"] {
   accent-color: var(--amber);
 }
-
-/* OPTIONAL: if your image is busy or very bright and the text is still hard to read,
-   uncomment this to add a soft dark panel behind the quiz only.
 
 table {
   background: rgba(10, 16, 48, 0.4);
