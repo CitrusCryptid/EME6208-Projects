@@ -3,12 +3,15 @@ body {
   font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
 }
 body, body * {
-  color: #000000 !important;
+  color: #f9f4f4 !important;
   font-family: inherit !important;
   font-size: inherit;
   text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
 }
-td:first-child, th { font-size: 2.2rem; font-weight: 700; }
+td:first-child, th { 
+    color: #010101 !important;
+    font-size: 2.2rem; 
+    font-weight: 700; }
 b, strong, a, a * { color: #ffd27a !important; }
 i, em { color: #dbe5f8 !important; }
 a:hover { color: #fff !important; }
