@@ -1,127 +1,17 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Full-screen background */
 body {
-    margin: 0;
-    min-height: 100vh;
-    background-image: url("https://www.fotawildlife.ie/cdn/shop/files/DK01042021_FOTA_457.jpg?v=1772800835&width=2000");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-      color: var(--ice);
-  font-family: "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  text-shadow: var(--text-shadow);
+  background: url("https://media.nicenews.com/s3:inbox-media-offload.nicenews.com/wp-content/uploads/2025/04/Chimp.jpg?width=1024") center / cover fixed no-repeat;
+  font: 1.05rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
 }
-
-/* Basic content container */
-.container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
+body, body * {
+  color: #f2f6ff !important;
+  font-family: inherit !important;
+  text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
 }
-
-/* Basic heading */
-h1 {
-    font-size: clamp(2rem, 6vw, 5rem);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+td:first-child, th { font-size: 1.25rem; font-weight: 700; }
+b, strong, a, a * { color: #ffd27a !important; }
+i, em { color: #dbe5f8 !important; }
+a:hover { color: #fff !important; }
+button, input[type=button] {
+  color: #151a3d !important; background: #ffd27a; text-shadow: none;
+  font-weight: 600; border: 0; border-radius: 8px; padding: .35rem .9rem;
 }
-```
-/* Text styling only: no background is set, so your image stays as is.
-   Palette: ice #f2f6ff (text), amber #ffd27a (accent) */
-
-:root {
-  --ice: #f2f6ff;
-  --ice-dim: #dbe5f8;
-  --amber: #ffd27a;
-
-  /* Layered shadow keeps text readable on both light and dark areas of a photo */
-  --text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.85),
-    0 0 8px rgba(0, 0, 0, 0.6),
-    0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-td,
-th {
-  color: var(--ice);
-}
-
-/* Quiz title and question text */
-td:first-child,
-th {
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-b,
-strong {
-  color: var(--amber);
-  font-weight: 700;
-}
-
-i,
-em {
-  color: var(--ice-dim);
-}
-
-/* Links: "Start Over", JavaScript Kit credit */
-a {
-  color: var(--amber);
-  text-decoration-color: rgba(255, 210, 122, 0.6);
-  text-underline-offset: 3px;
-}
-
-a:hover,
-a:focus-visible {
-  color: #fff;
-  text-decoration-color: #fff;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible {
-  outline: 3px solid var(--amber);
-  outline-offset: 3px;
-}
-
-/* Buttons keep a solid fill, so they don't need the shadow */
-button,
-input[type="button"],
-input[type="submit"] {
-  text-shadow: none;
-  font: inherit;
-  font-weight: 600;
-  color: #151a3d;
-  background: var(--amber);
-  border: 0;
-  border-radius: 8px;
-  padding: 0.35rem 0.9rem;
-  cursor: pointer;
-}
-
-button:hover,
-input[type="button"]:hover,
-input[type="submit"]:hover {
-  background: #fff;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  accent-color: var(--amber);
-}
-
-table {
-  background: rgba(10, 16, 48, 0.4);
-  border-radius: 14px;
-}
-*/
