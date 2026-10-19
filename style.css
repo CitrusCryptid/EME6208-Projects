@@ -7,17 +7,15 @@
 }
 
 /* Full-screen background */
-```css
 body {
     margin: 0;
     min-height: 100vh;
-
-    background-image: url("gibbon.jpg");
+    background-image: url("https://www.fotawildlife.ie/cdn/shop/files/DK01042021_FOTA_457.jpg?v=1772800835&width=2000");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-```
+
 /* Basic content container */
 .container {
     min-height: 100vh;
