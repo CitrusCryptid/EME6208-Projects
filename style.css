@@ -12,7 +12,7 @@ td:first-child, th {
     color: #010101 !important;
     font-size: 2.2rem; 
     font-weight: 700; }
-b, strong, a, a * { color: #2C4251 !important; }
+b, strong, a, a * { color: #6f95af !important; }
 i, em { color: #dbe5f8 !important; }
 a:hover { color: #fff !important; }
 button, input[type=button] {
