@@ -26,6 +26,7 @@ input[name="theresponse"] {
   vertical-align: middle; 
   cursor: pointer;
   accent-color: #2a7de1; 
+  padding: 25px;
 }
 
 /* Make the letters next to the bubbles bigger and add spacing */
