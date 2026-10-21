@@ -138,15 +138,20 @@ function generatequestions() {
 function responses() {
   var chosen = getSelectedResponse()
 
-  // Nothing selected, or we're on the "End of quiz" screen: do nothing
-  if (chosen === null || whichone > total) return
+  // Nothing selected, End of quiz screen, or already answered: do nothing
+  if (chosen === null || whichone > total || answered[whichone]) return
 
+  var message
   if (chosen != solution[whichone])
-    document.instantquiz.thesolution.value = "Sorry, the correct answer is " + solution[whichone]
+    message = "Sorry, the correct answer is " + solution[whichone]
   else
-    // Random compliment from the compliments array
-    document.instantquiz.thesolution.value = compliments[Math.floor(Math.random() * compliments.length)]
-    // Not sure why, but the radio buttons don't uncheck themselves when you go to the next question.
+    message = compliments[Math.floor(Math.random() * compliments.length)]
+
+  document.instantquiz.thesolution.value = message
+
+  // Save the result and lock the bubbles so there's no second try
+  answered[whichone] = { choice: chosen, feedback: message }
+  setRadiosDisabled(true)
 }
 
 // Next button should only advances if an answer has been selected
