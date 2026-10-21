@@ -1,7 +1,17 @@
 body {
   background: url("https://leakeyfoundation.org/five-fun-facts-about-gibbons/gibbon-fast-swinging/") center / cover fixed no-repeat;
   font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
+  padding-left: 425px; 
+  box-sizing: border-box;
+
 }
+
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+    }
+}
+
 body, body * {
   color: #f9f4f4 !important;
   font-family: inherit !important;
