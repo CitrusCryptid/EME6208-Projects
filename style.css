@@ -1,9 +1,9 @@
+/* --- GLOBAL LAYOUT --- */
 body {
   background: url("https://leakeyfoundation.org/five-fun-facts-about-gibbons/gibbon-fast-swinging/") center / cover fixed no-repeat;
   font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
-  padding-left: 425px; 
+  padding-left: 425px; /* Pushes the main page content out from underneath the sidebar */
   box-sizing: border-box;
-
 }
 
 @media (max-width: 768px) {
@@ -12,40 +12,4 @@ body {
     }
 }
 
-body, body * {
-  color: #f9f4f4 !important;
-  font-family: inherit !important;
-  font-size: inherit;
-  text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
-}
-td:first-child, th { 
-    color: #010101 !important;
-    font-size: 2.2rem; 
-    font-weight: 700; }
-b, strong, a, a * { color: #6f95af !important; }
-i, em { color: #dbe5f8 !important; }
-a:hover { color: #fff !important; }
-button, input[type=button] {
-  color: #151a3d !important; background: #8B94A3; text-shadow: none;
-  font-weight: 600; border: 0; border-radius: 8px; padding: 25px;
-  margin: 20px; cursor: pointer; transition: all .2s ease-in-out;
-}
-input[name="theresponse"] {
-  width: 60px;           /* bubble width */
-  height: 60px;          /* bubble height */
-  vertical-align: middle; 
-  cursor: pointer;
-  accent-color: #2a7de1; 
-  padding: 25px;
-}
 
-/* Make the letters next to the bubbles bigger and add spacing */
-label {
-  font-size: 48px;
-  margin: 0 12px;
-  cursor: pointer;
-}
-
-input:not([type=button]), textarea, select {
-  color: #000 !important; background: #fff; text-shadow: none;
-}

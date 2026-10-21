@@ -1,0 +1,74 @@
+
+.quiz-container, 
+.quiz-container * {
+  color: #f9f4f4;
+  font-family: inherit;
+  font-size: inherit;
+  text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
+}
+
+/* Table styles inside the quiz */
+.quiz-container td:first-child, 
+.quiz-container th { 
+    color: #010101 !important;
+    font-size: 2.2rem; 
+    font-weight: 700; 
+}
+
+/* Typography, links, and bold elements inside the quiz */
+.quiz-container b, 
+.quiz-container strong, 
+.quiz-container a, 
+.quiz-container a * { 
+    color: #6f95af; 
+}
+
+.quiz-container i, 
+.quiz-container em { 
+    color: #dbe5f8; 
+}
+
+.quiz-container a:hover { 
+    color: #fff; 
+}
+
+/* Quiz interaction buttons */
+.quiz-container button, 
+.quiz-container input[type=button] {
+  color: #151a3d; 
+  background: #8B94A3; 
+  text-shadow: none;
+  font-weight: 600; 
+  border: 0; 
+  border-radius: 8px; 
+  padding: 25px;
+  margin: 20px; 
+  cursor: pointer; 
+  transition: all .2s ease-in-out;
+}
+
+/* Radio button sizes */
+.quiz-container input[name="theresponse"] {
+  width: 60px;           /* bubble width */
+  height: 60px;          /* bubble height */
+  vertical-align: middle; 
+  cursor: pointer;
+  accent-color: #2a7de1; 
+  padding: 25px;
+}
+
+/* Large label option text next to bubbles */
+.quiz-container label {
+  font-size: 48px;
+  margin: 0 12px;
+  cursor: pointer;
+}
+
+/* Text inputs, selection boxes, and textareas inside the quiz */
+.quiz-container input:not([type=button]), 
+.quiz-container textarea, 
+.quiz-container select {
+  color: #000; 
+  background: #fff; 
+  text-shadow: none;
+}
