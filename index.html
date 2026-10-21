@@ -52,29 +52,28 @@ Over 200+ free scripts here!
 */
 
 </script>
+<!-- 1. Load your questions/answers file FIRST so total, question, choice1..., solution
+        and compliments exist before the quiz code runs. Use your real filename. -->
+<script language="JavaScript1.1" src="quizdata.js"></script>
+
+<!-- 2. Quiz code. This must come AFTER the form in the page. -->
 <script language="JavaScript1.1">
-// Tracks which question the quiz is currently showing (starts at question 1)
+// Which question is currently showing (starts at question 1)
 var whichone = 1
 
-// Shortcut to the big question textarea, so we don't retype the long path each time
+// Shortcut to the question textarea
 var tempmn = document.instantquiz.thequestion
 
-// Returns the letter of the selected radio button ("a", "b", "c", or "d"),
-// or null if nothing is selected yet.
-// (NEW: replaces the old dropdown's selectedIndex / options[] lookups)
+// Returns the letter of the checked radio button ("a"-"d"), or null if none is checked
 function getSelectedResponse() {
   var radios = document.instantquiz.theresponse
-  // Radio buttons sharing a name act like an array, so loop through them
   for (var i = 0; i < radios.length; i++) {
-    if (radios[i].checked) {
-      return radios[i].value
-    }
+    if (radios[i].checked) return radios[i].value
   }
   return null
 }
 
-// Clears all four radio buttons so no answer is selected
-// (NEW: replaces the old "selectedIndex = 0" which reset the dropdown to "----")
+// Unchecks all radio buttons (replaces the old dropdown reset)
 function clearResponse() {
   var radios = document.instantquiz.theresponse
   for (var i = 0; i < radios.length; i++) {
@@ -82,7 +81,7 @@ function clearResponse() {
   }
 }
 
-// "<<Back" button: go to the previous question, but never below question 1
+// "<<Back" button: previous question, never below 1
 function goBack() {
   if (whichone > 1) {
     whichone--
@@ -90,8 +89,7 @@ function goBack() {
   }
 }
 
-// "Next>>" button: go to the next question.
-// Allows going one past the last question (total + 1) to show "End of quiz".
+// "Next>>" button: next question, up to one past the last (the "End of quiz" screen)
 function goNext() {
   if (whichone <= total) {
     whichone++
@@ -99,52 +97,49 @@ function goNext() {
   }
 }
 
-// Draws the current question and its choices into the question box
+// Draws the current question and its four choices into the textarea
 function generatequestions() {
-  // Reset the radio buttons so the previous answer doesn't carry over
+  // Clear any previously selected answer
   clearResponse()
 
   // Clear the feedback box, unless Cheat Mode is on and we're on a real question
-  // (in Cheat Mode the solution is shown right away, so we don't want to wipe it)
   if (!document.instantquiz.cmode.checked || whichone >= total + 1 || whichone <= 0)
     document.instantquiz.thesolution.value = ''
 
   if (whichone >= total + 1)
-    // Past the last question: show the ending message
+    // Past the last question
     tempmn.value = "End of quiz"
   else {
-    // Build the question text: number, question, then choices a) through d).
-    // eval('choice' + whichone + '[1]') looks up arrays named choice1, choice2, etc.
+    // Number, question text, then choices a) to d).
+    // eval('choice' + whichone + '[1]') reads the arrays choice1, choice2, etc.
     tempmn.value = whichone + ")" + question[whichone] + "\n\n" +
       "a)" + eval('choice' + whichone + '[1]') + "\n" +
       "b)" + eval('choice' + whichone + '[2]') + "\n" +
       "c)" + eval('choice' + whichone + '[3]') + "\n" +
       "d)" + eval('choice' + whichone + '[4]')
 
-    // In Cheat Mode, display the correct answer immediately
+    // Cheat Mode shows the correct answer immediately
     if (document.instantquiz.cmode.checked)
       document.instantquiz.thesolution.value = solution[whichone]
   }
 }
 
-// Runs whenever a radio button is clicked: checks the answer and shows feedback
+// Runs when a radio button is clicked: checks the answer and shows feedback
 function responses() {
-  // Find out which letter the user picked (NEW: read from the radio buttons)
   var chosen = getSelectedResponse()
 
-  // Do nothing if nothing is selected, or if we're on the "End of quiz" screen
-  // (there's no solution to compare against there)
+  // Nothing selected, or we're on the "End of quiz" screen: do nothing
   if (chosen === null || whichone > total) return
 
   if (chosen != solution[whichone])
-    // Wrong answer: reveal the correct one
     document.instantquiz.thesolution.value = "Sorry, the correct answer is " + solution[whichone]
   else
-    // Right answer: show a random compliment from the compliments array.
-    // (FIXED: Math.floor(Math.random() * length) always gives a valid index.
-    // The old Math.round(...-1) could produce -1, which showed "undefined".)
+    // Random compliment from the compliments array
     document.instantquiz.thesolution.value = compliments[Math.floor(Math.random() * compliments.length)]
 }
+
+// 3. Show the first question as soon as the page loads (this was missing before)
+generatequestions()
 </script>
 
 </script>
