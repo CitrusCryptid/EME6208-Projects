@@ -40,7 +40,7 @@
           type="text" name="thesolution" size="35" readonly></td>
         </tr>
         <tr align="center">
-          <td width="100%"><div align="center"><center><p><strong>Your response:</strong>
+          <td width="100%"><div align="center"><center>
           <label><input type="radio" name="theresponse" value="a" onClick="responses()"> a</label>
           <label><input type="radio" name="theresponse" value="b" onClick="responses()"> b</label>
           <label><input type="radio" name="theresponse" value="c" onClick="responses()"> c</label>
@@ -50,7 +50,9 @@
           onClick="goBack()"> <input type="button"
           value="Next&gt;&gt;" name="B2"
           onClick="goNext()"><br>
-          <small><a href="#" onClick="whichone=1;generatequestions();return false">Start Over</a> </small><input
+          <small>
+  <a href="#" onClick="whichone=1; answered=new Array(); generatequestions(); document.instantquiz.thesolution.value=''; return false;">Start Over</a>
+</small><input
           type="checkbox" name="cmode" value="ON"><small>Cheat Mode</small><p align="center"><font face="arial" size="-2">This free quiz script provided by</font><br> <font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript Kit</a></font></p></td>
         </tr>
       </table>

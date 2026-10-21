@@ -7,7 +7,6 @@
   text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
 }
 
-/* Table styles inside the quiz */
 .quiz-container td:first-child, 
 .quiz-container th { 
     color: #010101 !important;
@@ -32,6 +31,7 @@
     color: #fff; 
 }
 
+
 /* Quiz interaction buttons */
 .quiz-container button, 
 .quiz-container input[type=button] {
@@ -41,7 +41,7 @@
   font-weight: 600; 
   border: 0; 
   border-radius: 8px; 
-  margin: 20px; 
+  margin: 5px; 
   cursor: pointer; 
   transition: all .2s ease-in-out;
 }
@@ -50,11 +50,46 @@
 .quiz-container input[name="theresponse"] {
   width: 60px;           
   height: 60px;       
-  vertical-align: middle; 
   cursor: pointer;
   accent-color: #2a7de1; 
-  padding: 8px;
-  font-size: 3rem;
+  padding: 0px;
+  
+}
+
+.quiz-container input[name="thesolution"] {
+        
+  color: #000; 
+  background: #fff; 
+  text-shadow: none;
+  resize: none;
+  border: 1px solid #ccc;
+
+  width: 100%; 
+  max-width: 600px; 
+  box-sizing: border-box;
+
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.quiz-container textarea[name="thequestion"] {
+        
+  color: #000; 
+  background: #fff; 
+  text-shadow: none;
+  resize: none;
+  border: 1px solid #ccc;
+
+  width: 100%; 
+  max-width: 620px; 
+  box-sizing: border-box;
+
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
 }
 
 /* Large label option text next to bubbles */
@@ -77,11 +112,21 @@
   border: 1px solid #ccc;
 
   width: 100%; 
-  max-width: 500px; 
+  max-width: 320px; 
   box-sizing: border-box;
 
-  padding: 15px;
+  padding: 5px;
   border-radius: 8px;
   border: 1px solid #ccc;
   font-family: inherit;
+}
+.quiz-container input[type="checkbox"] {
+  width: auto; 
+  height: auto;
+  margin-right: 10px;
+  cursor: pointer;
+  
+  /* Optional: Scales the checkbox slightly so it's easier to click */
+  transform: scale(1.3); 
+  vertical-align: middle;
 }
