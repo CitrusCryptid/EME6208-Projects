@@ -7,6 +7,8 @@
     <title>GibbonQuiz</title>
   </head>
   <body>
+
+    
 <div align="left">
 
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -109,33 +111,43 @@ function goNext() {
 
 // Draws the current question and its four choices into the textarea
 function generatequestions() {
-  // Clear any previously selected answer
+  // Uncheck all bubbles and unlock them (they may have been locked on the last question)
   clearResponse()
+  setRadiosDisabled(false)
 
   // Clear the feedback box, unless Cheat Mode is on and we're on a real question
   if (!document.instantquiz.cmode.checked || whichone >= total + 1 || whichone <= 0)
     document.instantquiz.thesolution.value = ''
 
-  if (whichone >= total + 1)
-    // Past the last question
+  if (whichone >= total + 1) {
+    // Past the last question: show the ending message and lock the bubbles
     tempmn.value = "End of quiz"
-  else {
-    // Number, question text, then choices a) to d).
-    // eval('choice' + whichone + '[1]') reads the arrays choice1, choice2, etc.
+    setRadiosDisabled(true)
+  } else {
     tempmn.value = whichone + ")" + question[whichone] + "\n\n" +
       "a)" + eval('choice' + whichone + '[1]') + "\n" +
       "b)" + eval('choice' + whichone + '[2]') + "\n" +
       "c)" + eval('choice' + whichone + '[3]') + "\n" +
       "d)" + eval('choice' + whichone + '[4]')
 
-    // Cheat Mode shows the correct answer immediately
     if (document.instantquiz.cmode.checked)
       document.instantquiz.thesolution.value = solution[whichone]
+
+    // If this question was already answered, restore the old choice and keep it locked
+    var saved = answered[whichone]
+    if (saved) {
+      var radios = document.instantquiz.theresponse
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].value == saved.choice) radios[i].checked = true
+      }
+      document.instantquiz.thesolution.value = saved.feedback
+      setRadiosDisabled(true)
+    }
   }
 }
 
 // Runs when a radio button is clicked: checks the answer and shows feedback
-ffunction responses() {
+function responses() {
   var chosen = getSelectedResponse()
 
   // Nothing selected, End of quiz screen, or already answered: do nothing
