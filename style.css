@@ -17,16 +17,15 @@ i, em { color: #dbe5f8 !important; }
 a:hover { color: #fff !important; }
 button, input[type=button] {
   color: #151a3d !important; background: #8B94A3; text-shadow: none;
-  font-weight: 600; border: 0; border-radius: 8px; padding: .35rem .9rem;
+  font-weight: 600; border: 0; border-radius: 8px; padding: 25px;
   margin: 0 20px; cursor: pointer; transition: all .2s ease-in-out;
 }
-/* Make the radio bubbles bigger */
 input[name="theresponse"] {
   width: 60px;           /* bubble width */
   height: 60px;          /* bubble height */
-  vertical-align: middle; /* line the bubble up with its letter */
+  vertical-align: middle; 
   cursor: pointer;
-  accent-color: #2a7de1; /* optional: colors the selected bubble */
+  accent-color: #2a7de1; 
 }
 
 /* Make the letters next to the bubbles bigger and add spacing */
