@@ -8,10 +8,10 @@
 
 .sidebar {
     --sidebar-width: 225px;
-    --primary-color: #2ED574;
-    --secondary-color: #291946;
-    --text-color: var(--primary-color);
-    --hover-color: rgba(255, 255, 255, 0.1);
+    --primary-color: #261815;
+    --secondary-color: #2B1616;
+    --text-color: #DBA9A9;
+    --hover-color: #F5F0F0;
     --mobile-nav-height: auto;
 
     /* Base Layout Settings */
@@ -38,7 +38,7 @@
 }
 
 .sidebar .logo {
-    color: var(--primary-color);
+    color: var(--text-color);
     font-size: 2rem;
     font-weight: bold;
     display: flex;
@@ -72,7 +72,7 @@
     display: flex;
     align-items: center;
     padding: 1rem 1.5rem;
-    color: var(--text-color);
+    color: #F26F4B;
     text-decoration: none;
     border-radius: 2.75rem;
     transition: all 0.2s ease;
