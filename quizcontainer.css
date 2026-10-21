@@ -49,8 +49,8 @@
 
 /* Radio button sizes */
 .quiz-container input[name="theresponse"] {
-  width: 60px;           /* bubble width */
-  height: 60px;          /* bubble height */
+  width: 10px;           /* bubble width */
+  height: 10px;          /* bubble height */
   vertical-align: middle; 
   cursor: pointer;
   accent-color: #2a7de1; 
