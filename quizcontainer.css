@@ -48,12 +48,13 @@
 
 .quiz-container button:hover, 
 .quiz-container input[type=button]:hover {
-    background: var(--hover-color);
-    color: var(--primary-color);
+    background: whitesmoke;
+    color: black;
     transform: translateX(10px);
-    border-color: var(--primary-color);
+    border-color: #6f95af;;
     box-shadow: 0 0 20px rgba(19, 175, 240, 0.1);
 }
+
 /* Radio button sizes */
 .quiz-container input[name="theresponse"] {
   width: 60px;           
