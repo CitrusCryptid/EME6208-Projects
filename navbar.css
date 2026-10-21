@@ -1,14 +1,11 @@
 /* --- SCOPED RESET --- */
 /* Instead of global '*', we limit the box-sizing reset strictly to the sidebar and its contents */
-.sidebar,
 .sidebar * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- VARIABLES SCOPED TO THE SIDEBAR --- */
-/* Moved variables from :root directly into the sidebar class to avoid global leaks */
 .sidebar {
     --sidebar-width: 425px;
     --primary-color: #2ED574;
