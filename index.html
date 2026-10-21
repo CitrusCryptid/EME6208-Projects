@@ -136,9 +136,21 @@ function responses() {
   else
     // Random compliment from the compliments array
     document.instantquiz.thesolution.value = compliments[Math.floor(Math.random() * compliments.length)]
+    // Not sure why, but the radio buttons don't uncheck themselves when you go to the next question.
 }
 
-// 3. Show the first question as soon as the page loads (this was missing before)
+// Next button should only advances if an answer has been selected
+function goNext() {
+  // Already on the "End of quiz" screen: nothing left to advance to
+  if (whichone > total) return
+
+  if (getSelectedResponse() === null) {
+    document.instantquiz.thesolution.value = "Please select an answer before continuing."
+    return
+  }
+  whichone++
+  generatequestions()
+}
 generatequestions()
 </script>
 
