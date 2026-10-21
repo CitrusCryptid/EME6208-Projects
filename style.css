@@ -19,6 +19,22 @@ button, input[type=button] {
   color: #151a3d !important; background: #8B94A3; text-shadow: none;
   font-weight: 600; border: 0; border-radius: 8px; padding: .35rem .9rem;
 }
+/* Make the radio bubbles bigger */
+input[name="theresponse"] {
+  width: 28px;           /* bubble width */
+  height: 28px;          /* bubble height */
+  vertical-align: middle; /* line the bubble up with its letter */
+  cursor: pointer;
+  accent-color: #2a7de1; /* optional: colors the selected bubble */
+}
+
+/* Make the letters next to the bubbles bigger and add spacing */
+label {
+  font-size: 22px;
+  margin: 0 12px;
+  cursor: pointer;
+}
+
 input:not([type=button]), textarea, select {
   color: #000 !important; background: #fff; text-shadow: none;
 }
