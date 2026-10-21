@@ -64,24 +64,6 @@
   cursor: pointer;
 }
 
-.quiz-container textarea {
-    color: #000; 
-  background: #fff; 
-  text-shadow: none;
-  resize: none;
-  border: 1px solid #ccc;
-
-  width: 100%; 
-  max-width: 550px; 
-  height: 220px; 
-  box-sizing: border-box;
-
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-family: inherit;
-}
-
 .quiz-container input:not([type=button]), 
 .quiz-container textarea, 
 .quiz-container select {
