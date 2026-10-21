@@ -7,7 +7,7 @@
 }
 
 .sidebar {
-    --sidebar-width: 425px;
+    --sidebar-width: 225px;
     --primary-color: #2ED574;
     --secondary-color: #291946;
     --text-color: var(--primary-color);
