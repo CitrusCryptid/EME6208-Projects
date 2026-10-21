@@ -56,35 +56,67 @@ Over 200+ free scripts here!
 
 </script>
 <script language="JavaScript1.1">
-var whichone=1
-var tempmn=document.instantquiz.thequestion
-function goBack(){
-if (whichone>1){whichone--;generatequestions()}
-}
-function goNext(){
-if (whichone<=total){whichone++;generatequestions()}
-}
-function generatequestions(){
-document.instantquiz.theresponse.selectedIndex=0
-if (!document.instantquiz.cmode.checked||whichone>=total+1||whichone<=0)
-document.instantquiz.thesolution.value=''
-if (whichone>=total+1)
-tempmn.value="End of quiz"
-else{
-tempmn.value=whichone+")"+question[whichone]+"\n\n"+"a)"+eval('choice'+whichone+'[1]')+"\n"+"b)"+eval('choice'+whichone+'[2]')+"\n"+"c)"+eval('choice'+whichone+'[3]')+"\n"+"d)"+eval('choice'+whichone+'[4]')
-if (document.instantquiz.cmode.checked)
-document.instantquiz.thesolution.value=solution[whichone]
-}
+// Tracks which question the quiz is currently showing (starts at question 1)
+var whichone = 1
+
+// Shortcut to the big question textarea, so we don't retype the long path each time
+var tempmn = document.instantquiz.thequestion
+
+// Returns the letter of the selected radio button ("a", "b", "c", or "d"),
+// or null if nothing is selected yet.
+// (NEW: replaces the old dropdown's selectedIndex / options[] lookups)
+function getSelectedResponse() {
+  var radios = document.instantquiz.theresponse
+  // Radio buttons sharing a name act like an array, so loop through them
+  for (var i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      return radios[i].value
+    }
+  }
+  return null
 }
 
-function responses(){
-var temp2=document.instantquiz.theresponse
-var temp3=temp2.options[temp2.selectedIndex].text
-if (temp3!=solution[whichone]&&temp2.selectedIndex!=0)
-document.instantquiz.thesolution.value="Sorry, the correct answer is "+solution[whichone]
-else if(temp2.selectedIndex!=0)
-document.instantquiz.thesolution.value=compliments[Math.round(Math.random()*compliments.length-1)]
+// Clears all four radio buttons so no answer is selected
+// (NEW: replaces the old "selectedIndex = 0" which reset the dropdown to "----")
+function clearResponse() {
+  var radios = document.instantquiz.theresponse
+  for (var i = 0; i < radios.length; i++) {
+    radios[i].checked = false
+  }
 }
+
+// "<<Back" button: go to the previous question, but never below question 1
+function goBack() {
+  if (whichone > 1) {
+    whichone--
+    generatequestions()
+  }
+}
+
+// "Next>>" button: go to the next question.
+// Allows going one past the last question (total + 1) to show "End of quiz".
+function goNext() {
+  if (whichone <= total) {
+    whichone++
+    generatequestions()
+  }
+}
+
+// Draws the current question and its choices into the question box
+function generatequestions() {
+  // Reset the radio buttons so the previous answer doesn't carry over
+  clearResponse()
+
+  // Clear the feedback box, unless Cheat Mode is on and we're on a real question
+  // (in Cheat Mode the solution is shown right away, so we don't want to wipe it)
+  if (!document.instantquiz.cmode.checked || whichone >= total + 1 || whichone <= 0)
+    document.instantquiz.thesolution.value = ''
+
+  if (whichone >= total + 1)
+    // Past the last question: show the ending message
+    tempmn.value = "End of quiz"
+  else {
+    // Build the question text: number,
 
 generatequestions()
 </script>
