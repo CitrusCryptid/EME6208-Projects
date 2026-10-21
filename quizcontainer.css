@@ -49,12 +49,13 @@
 
 /* Radio button sizes */
 .quiz-container input[name="theresponse"] {
-  width: 10px;           /* bubble width */
-  height: 10px;          /* bubble height */
+  width: 60px;           /* bubble width */
+  height: 60px;          /* bubble height */
   vertical-align: middle; 
   cursor: pointer;
   accent-color: #2a7de1; 
   padding: 25px;
+  font-size: 3rem;
 }
 
 /* Large label option text next to bubbles */
