@@ -58,14 +58,14 @@
 
 .quiz-container input[name="thesolution"] {
         
-  color: #000; 
-  background: #fff; 
+  color: #eae5e5; 
+  background: #363636; 
   text-shadow: none;
   resize: none;
   border: 1px solid #ccc;
 
   width: 100%; 
-  max-width: 600px; 
+  max-width: 820px; 
   box-sizing: border-box;
 
   padding: 5px;
