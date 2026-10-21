@@ -49,12 +49,12 @@
 
 /* Radio button sizes */
 .quiz-container input[name="theresponse"] {
-  width: 60px;           /* bubble width */
-  height: 60px;          /* bubble height */
+  width: 60px;           
+  height: 60px;       
   vertical-align: middle; 
   cursor: pointer;
   accent-color: #2a7de1; 
-  padding: 25px;
+  padding: 8px;
   font-size: 3rem;
 }
 
@@ -63,6 +63,9 @@
   font-size: 48px;
   margin: 0 12px;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .quiz-container input:not([type=button]), 
