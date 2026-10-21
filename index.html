@@ -60,7 +60,16 @@ Over 200+ free scripts here!
 <script language="JavaScript1.1">
 // Which question is currently showing (starts at question 1)
 var whichone = 1
+//Locks answer selection after user has answered a question
+var answered = new Array()
 
+// Enables or disables all four bubbles at once
+function setRadiosDisabled(state) {
+  var radios = document.instantquiz.theresponse
+  for (var i = 0; i < radios.length; i++) {
+    radios[i].disabled = state
+  }
+}
 // Shortcut to the question textarea
 var tempmn = document.instantquiz.thequestion
 
