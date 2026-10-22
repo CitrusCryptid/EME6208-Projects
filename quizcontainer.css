@@ -1,3 +1,10 @@
+body {
+    background: url("https://images.csmonitor.com/csm/2014/09/0911-gibbon-genome.jpg?alias=standard_1200x800") center / cover fixed no-repeat;
+    font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
+   /* padding-left: 225px; */
+    /* Pushes the main page content out from underneath the sidebar */
+    box-sizing: border-box;
+}
 .quiz-container,
 .quiz-container * {
   color: #f9f4f4;
@@ -122,11 +129,10 @@
 
 .quiz-container textarea[name="thequestion"] {
 
-  color: #000;
-  background: #fff;
-  text-shadow: none;
+  background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   resize: none;
-  border: 1px solid #ccc;
 
   width: 100%;
   max-width: 620px;
