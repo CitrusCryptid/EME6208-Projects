@@ -1,197 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./navbar.css">
-     <link rel="stylesheet" href="./quizcontainer.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GibbonQuiz</title>
-  </head>
-  <body>
 
-    <aside class="sidebar">
-  <div class="sidebar-header">
-    <div class="logo">
-      <span class="logo-name">Ben Finkelstein</span>
-      <span class="logo-subtitle">EdTech</span>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./navbar.css">
+  <link rel="stylesheet" href="./quizcontainer.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GibbonQuiz</title>
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-name">Ben Finkelstein</span>
+        <span class="logo-subtitle">EdTech</span>
+      </div>
     </div>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="https://bfinkelsteinedu.carrd.co/" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span>Home</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <div class="quiz-container">
+    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+      <tr>
+        <td width="50%">
+          <form method="POST" name="instantquiz">
+            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+              <caption><strong>Pop Quiz: Gibbon Trivia</strong></caption>
+              <tr>
+                <td width="100%">
+                  <div align="center">
+                    <center>
+                      <p><textarea rows="10" name="thequestion" cols="69" wrap="virtual" readonly></textarea>
+                </td>
+              </tr>
+              <tr align="center">
+                <td width="50%">
+                  <div align="center">
+                    <center>
+                      <p><strong>Comments: </strong><input type="text" name="thesolution" size="35" readonly>
+                </td>
+              </tr>
+              <tr align="center">
+                <td width="100%">
+                  <div align="center">
+                    <center>
+                      <label><input type="radio" name="theresponse" value="a" onClick="responses()"> a</label>
+                      <label><input type="radio" name="theresponse" value="b" onClick="responses()"> b</label>
+                      <label><input type="radio" name="theresponse" value="c" onClick="responses()"> c</label>
+                      <label><input type="radio" name="theresponse" value="d" onClick="responses()"> d</label>
+                      <br>
+                      <input type="button" value="&lt;&lt;Back" name="B1" onClick="goBack()"> <input type="button"
+                        value="Next&gt;&gt;" name="B2" onClick="goNext()"><br>
+                      <small>
+                        <a href="#"
+                          onClick="whichone=1; answered=new Array(); generatequestions(); document.instantquiz.thesolution.value=''; return false;">Start
+                          Over</a>
+                      </small>
+                      <input type="checkbox" name="cmode" value="ON"> <small>Cheat Mode</small>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </td>
+      </tr>
+    </table>
   </div>
-  <ul class="nav-list">
-    <li class="nav-item">
-      <a href="https://bfinkelsteinedu.carrd.co/" class="nav-link" target="_blank" rel="noopener noreferrer">
-        <span>Home</span>
-      </a>
-    </li>
-  </ul>
-    </aside>
 
-<div class="quiz-container">  
-<table border="0" cellspacing="0" cellpadding="0" width="100%">
-  <tr>
-    <td width="50%"><form method="POST" name="instantquiz">
-      <table border="0" width="100%" cellspacing="0" cellpadding="0">
-        <caption><strong>Pop Quiz: Gibbon Trivia</strong></caption>
-        <tr>
-          <td width="100%"><div align="center"><center><p><textarea rows="10" name="thequestion" cols="69" wrap="virtual" readonly></textarea></td>
-        </tr>
-        <tr align="center">
-          <td width="50%"><div align="center"><center><p><strong>Comments: </strong><input
-          type="text" name="thesolution" size="35" readonly></td>
-        </tr>
-        <tr align="center">
-          <td width="100%"><div align="center"><center>
-          <label><input type="radio" name="theresponse" value="a" onClick="responses()"> a</label>
-          <label><input type="radio" name="theresponse" value="b" onClick="responses()"> b</label>
-          <label><input type="radio" name="theresponse" value="c" onClick="responses()"> c</label>
-          <label><input type="radio" name="theresponse" value="d" onClick="responses()"> d</label>
-          <br>
-          <input type="button" value="&lt;&lt;Back" name="B1"
-          onClick="goBack()"> <input type="button"
-          value="Next&gt;&gt;" name="B2"
-          onClick="goNext()"><br>
-          <small>
-  <a href="#" onClick="whichone=1; answered=new Array(); generatequestions(); document.instantquiz.thesolution.value=''; return false;">Start Over</a>
-</small><input
-          type="checkbox" name="cmode" value="ON"><small>Cheat Mode</small><p align="center"><font face="arial" size="-2">This free quiz script provided by</font><br> <font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript Kit</a></font></p></td>
-        </tr>
-      </table>
-    </form>
-    </td>
-  </tr>
-</table>
-</div>
-
-</script>
-<!-- 1. Load your questions/answers file FIRST so total, question, choice1..., solution
+  </script>
+  <!-- 1. Load your questions/answers file FIRST so total, question, choice1..., solution
         and compliments exist before the quiz code runs. Use your real filename. -->
-<script language="JavaScript1.1" src="pop.js"></script>
+  <script language="JavaScript1.1" src="pop.js"></script>
 
-<!-- 2. Quiz code. This must come AFTER the form in the page. -->
-<script language="JavaScript1.1">
-// Which question is currently showing (starts at question 1)
-var whichone = 1
-//Locks answer selection after user has answered a question
-var answered = new Array()
+  <!-- 2. Quiz code. This must come AFTER the form in the page. -->
+  <script language="JavaScript1.1">
+    // Which question is currently showing (starts at question 1)
+    var whichone = 1
+    //Locks answer selection after user has answered a question
+    var answered = new Array()
 
-// Enables or disables all four bubbles at once
-//does this even work lol
-function setRadiosDisabled(state) {
-  var radios = document.instantquiz.theresponse
-  for (var i = 0; i < radios.length; i++) {
-    radios[i].disabled = state
-  }
-}
-// Shortcut to the question textarea
-var tempmn = document.instantquiz.thequestion
-
-// Returns the letter of the checked radio button ("a"-"d"), or null if none is checked
-function getSelectedResponse() {
-  var radios = document.instantquiz.theresponse
-  for (var i = 0; i < radios.length; i++) {
-    if (radios[i].checked) return radios[i].value
-  }
-  return null
-}
-
-// Unchecks all radio buttons (replaces the old dropdown reset)
-function clearResponse() {
-  var radios = document.instantquiz.theresponse
-  for (var i = 0; i < radios.length; i++) {
-    radios[i].checked = false
-  }
-}
-
-// "<<Back" button: previous question, never below 1
-function goBack() {
-  if (whichone > 1) {
-    whichone--
-    generatequestions()
-  }
-}
-
-// "Next>>" button: next question, up to one past the last (the "End of quiz" screen)
-function goNext() {
-  if (whichone <= total) {
-    whichone++
-    generatequestions()
-  }
-}
-
-// Draws the current question and its four choices into the textarea
-function generatequestions() {
-  // Uncheck all bubbles and unlock them (they may have been locked on the last question)
-  clearResponse()
-  setRadiosDisabled(false)
-
-  // Clear the feedback box, unless Cheat Mode is on and we're on a real question
-  if (!document.instantquiz.cmode.checked || whichone >= total + 1 || whichone <= 0)
-    document.instantquiz.thesolution.value = ''
-
-  if (whichone >= total + 1) {
-    // Past the last question: show the ending message and lock the bubbles
-    tempmn.value = "End of quiz"
-    setRadiosDisabled(true)
-  } else {
-    tempmn.value = whichone + ")" + question[whichone] + "\n\n" +
-      "a)" + eval('choice' + whichone + '[1]') + "\n" +
-      "b)" + eval('choice' + whichone + '[2]') + "\n" +
-      "c)" + eval('choice' + whichone + '[3]') + "\n" +
-      "d)" + eval('choice' + whichone + '[4]')
-
-    if (document.instantquiz.cmode.checked)
-      document.instantquiz.thesolution.value = solution[whichone]
-
-    // If this question was already answered, restore the old choice and keep it locked
-    var saved = answered[whichone]
-    if (saved) {
+    // Enables or disables all four bubbles at once
+    //does this even work lol
+    function setRadiosDisabled(state) {
       var radios = document.instantquiz.theresponse
       for (var i = 0; i < radios.length; i++) {
-        if (radios[i].value == saved.choice) radios[i].checked = true
+        radios[i].disabled = state
       }
-      document.instantquiz.thesolution.value = saved.feedback
+    }
+    // Shortcut to the question textarea
+    var tempmn = document.instantquiz.thequestion
+
+    // Returns the letter of the checked radio button ("a"-"d"), or null if none is checked
+    function getSelectedResponse() {
+      var radios = document.instantquiz.theresponse
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) return radios[i].value
+      }
+      return null
+    }
+
+    // Unchecks all radio buttons (replaces the old dropdown reset)
+    function clearResponse() {
+      var radios = document.instantquiz.theresponse
+      for (var i = 0; i < radios.length; i++) {
+        radios[i].checked = false
+      }
+    }
+
+    // "<<Back" button: previous question, never below 1
+    function goBack() {
+      if (whichone > 1) {
+        whichone--
+        generatequestions()
+      }
+    }
+
+    // "Next>>" button: next question, up to one past the last (the "End of quiz" screen)
+    function goNext() {
+      if (whichone <= total) {
+        whichone++
+        generatequestions()
+      }
+    }
+
+    // Draws the current question and its four choices into the textarea
+    function generatequestions() {
+      // Uncheck all bubbles and unlock them (they may have been locked on the last question)
+      clearResponse()
+      setRadiosDisabled(false)
+
+      // Clear the feedback box, unless Cheat Mode is on and we're on a real question
+      if (!document.instantquiz.cmode.checked || whichone >= total + 1 || whichone <= 0)
+        document.instantquiz.thesolution.value = ''
+
+      if (whichone >= total + 1) {
+        // Past the last question: show the ending message and lock the bubbles
+        tempmn.value = "End of quiz"
+        setRadiosDisabled(true)
+      } else {
+        tempmn.value = whichone + ")" + question[whichone] + "\n\n" +
+          "a)" + eval('choice' + whichone + '[1]') + "\n" +
+          "b)" + eval('choice' + whichone + '[2]') + "\n" +
+          "c)" + eval('choice' + whichone + '[3]') + "\n" +
+          "d)" + eval('choice' + whichone + '[4]')
+
+        if (document.instantquiz.cmode.checked)
+          document.instantquiz.thesolution.value = solution[whichone]
+
+        // If this question was already answered, restore the old choice and keep it locked
+        var saved = answered[whichone]
+        if (saved) {
+          var radios = document.instantquiz.theresponse
+          for (var i = 0; i < radios.length; i++) {
+            if (radios[i].value == saved.choice) radios[i].checked = true
+          }
+          document.instantquiz.thesolution.value = saved.feedback
+          setRadiosDisabled(true)
+        }
+      }
+    }
+
+    // Runs when a radio button is clicked: checks the answer and shows feedback
+    function responses() {
+      var chosen = getSelectedResponse()
+
+      // Nothing selected, End of quiz screen, or already answered: do nothing
+      if (chosen === null || whichone > total || answered[whichone]) return
+
+      var message
+      if (chosen != solution[whichone])
+        message = "Sorry, the correct answer is " + solution[whichone]
+      else
+        message = compliments[Math.floor(Math.random() * compliments.length)]
+
+      document.instantquiz.thesolution.value = message
+
+      // Save the result and lock the bubbles so there's no second try
+      answered[whichone] = { choice: chosen, feedback: message }
       setRadiosDisabled(true)
     }
-  }
-}
 
-// Runs when a radio button is clicked: checks the answer and shows feedback
-function responses() {
-  var chosen = getSelectedResponse()
+    // Next button should only advances if an answer has been selected
+    function goNext() {
+      // Already on the "End of quiz" screen: nothing left to advance to
+      if (whichone > total) return
 
-  // Nothing selected, End of quiz screen, or already answered: do nothing
-  if (chosen === null || whichone > total || answered[whichone]) return
+      if (getSelectedResponse() === null) {
+        document.instantquiz.thesolution.value = "Please select an answer before continuing."
+        return
+      }
+      whichone++
+      generatequestions()
+    }
+    generatequestions()
+  </script>
 
-  var message
-  if (chosen != solution[whichone])
-    message = "Sorry, the correct answer is " + solution[whichone]
-  else
-    message = compliments[Math.floor(Math.random() * compliments.length)]
+  </script>
+  <script src="./script.js"></script>
+  </div>
+</body>
 
-  document.instantquiz.thesolution.value = message
-
-  // Save the result and lock the bubbles so there's no second try
-  answered[whichone] = { choice: chosen, feedback: message }
-  setRadiosDisabled(true)
-}
-
-// Next button should only advances if an answer has been selected
-function goNext() {
-  // Already on the "End of quiz" screen: nothing left to advance to
-  if (whichone > total) return
-
-  if (getSelectedResponse() === null) {
-    document.instantquiz.thesolution.value = "Please select an answer before continuing."
-    return
-  }
-  whichone++
-  generatequestions()
-}
-generatequestions()
-</script>
-
-</script>
-    <script src="./script.js"></script>
-    </div>
-  </body>
 </html>

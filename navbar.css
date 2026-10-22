@@ -24,7 +24,7 @@
     background: linear-gradient(black, var(--secondary-color));
     padding: 2rem;
     backdrop-filter: blur(8px);
-    z-index: 1000; 
+    z-index: 1000;
 }
 
 /* --- SIDEBAR INTERNAL ELEMENTS --- */
