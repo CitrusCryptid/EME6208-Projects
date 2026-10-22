@@ -23,6 +23,7 @@
     subtitle: 'EdTech',
     links: [
       { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
+      { label: 'Gibbon Quiz', href: 'index.html'},
       { label: 'Drag & Drop', href: 'drag.html'},
       // { label: 'About', href: '/about.html' },
     ]
