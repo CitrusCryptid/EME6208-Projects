@@ -22,7 +22,8 @@
     name: 'Ben Finkelstein',
     subtitle: 'EdTech',
     links: [
-      { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true }
+      { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
+      { label: 'Drag & Drop', href: 'drag.html'},
       // { label: 'About', href: '/about.html' },
     ]
   };
