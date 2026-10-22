@@ -39,14 +39,17 @@
                 <td width="100%">
                   <div align="center">
                     <center>
-                      <p><textarea rows="10" name="thequestion" cols="69" wrap="virtual" readonly></textarea>
+                      <p>
+                        <textarea rows="10" name="thequestion" cols="69" wrap="virtual" readonly></textarea>
+                      </p>
                 </td>
               </tr>
               <tr align="center">
                 <td width="50%">
                   <div align="center">
                     <center>
-                      <p><strong>Comments: </strong><input type="text" name="thesolution" size="35" readonly>
+                      <p><strong>Comments: </strong>
+                        <input type="text" name="thesolution" size="35" readonly>
                 </td>
               </tr>
               <tr align="center">
@@ -58,12 +61,12 @@
                       <label><input type="radio" name="theresponse" value="c" onClick="responses()"> c</label>
                       <label><input type="radio" name="theresponse" value="d" onClick="responses()"> d</label>
                       <br>
-                      <input type="button" value="&lt;&lt;Back" name="B1" onClick="goBack()"> <input type="button"
-                        value="Next&gt;&gt;" name="B2" onClick="goNext()"><br>
+                        <input type="button" value="&lt;&lt;Back" name="B1" onClick="goBack()"> 
+                        <input type="button" value="Next&gt;&gt;" name="B2" onClick="goNext()">
+                      <br>
                       <small>
                         <a href="#"
-                          onClick="whichone=1; answered=new Array(); generatequestions(); document.instantquiz.thesolution.value=''; return false;">Start
-                          Over</a>
+                          onClick="whichone=1; answered=new Array(); generatequestions(); document.instantquiz.thesolution.value=''; return false;">Start Over</a>
                       </small>
                       <input type="checkbox" name="cmode" value="ON"> <small>Cheat Mode</small>
                 </td>
