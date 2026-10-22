@@ -159,4 +159,13 @@ body{
 	}
 	.style1 {color: #FF0000}
 
-	
+	/* Center the intro text */
+body > p {
+  text-align: center;
+}
+
+/* Center the 790px quiz panel */
+#dhtmlgoodies_dragDropContainer {
+  margin-left: auto;
+  margin-right: auto;
+}
