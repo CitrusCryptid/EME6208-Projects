@@ -133,13 +133,13 @@ body {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   resize: none;
-
+  text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
   width: 100%;
-  max-width: 620px;
+  max-width: 850px;
   box-sizing: border-box;
   color: #7fd288;
   padding: 5px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
+  font-family: inherit;
 }
