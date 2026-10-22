@@ -160,12 +160,25 @@ body{
 	.style1 {color: #FF0000}
 
 	/* Center the intro text */
+/* Center the intro text */
 body > p {
   text-align: center;
 }
-
-/* Center the 790px quiz panel */
 #dhtmlgoodies_dragDropContainer {
-  margin-left: auto;
-  margin-right: auto;
+  width: 736px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+#dhtmlgoodies_mainContainer {
+  width: 556px;
+}
+
+/* Center the text inside the boxes and the draggable items */
+#dhtmlgoodies_dragDropContainer li,
+#dragContent li,
+#dhtmlgoodies_listOfItems div p,
+#dhtmlgoodies_mainContainer div p {
+  text-align: center;
+  padding-left: 0;
 }
