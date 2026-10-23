@@ -25,6 +25,7 @@
       { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
       { label: 'Gibbon Quiz', href: 'index.html'},
       { label: 'Drag & Drop', href: 'drag.html'},
+      { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/'},
       // { label: 'About', href: '/about.html' },
     ]
   };
