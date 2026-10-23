@@ -42,10 +42,10 @@
 
     .sidebar {
       --sidebar-width: 225px;
-      --primary-color: #261815;
-      --secondary-color: #2B1616;
-      --text-color: #DBA9A9;
-      --hover-color: #F5F0F0;
+      --primary-color: #3A6EA5; 
+      --secondary-color: #004E98;
+      --text-color: #DEBEBEB;
+      --hover-color: #FF6700;
       --mobile-nav-height: auto;
 
       font-family: system-ui, -apple-system, sans-serif;
@@ -177,6 +177,7 @@
       .nav-link span { font-size: 0.75rem; }
     }
   `;
+
 
   // ---------- PAGE-LEVEL CSS (pushes content past the fixed sidebar) ----------
   // Sidebar total width = 225px content + 2rem padding on each side.
