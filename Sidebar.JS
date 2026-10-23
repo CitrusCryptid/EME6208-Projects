@@ -44,7 +44,7 @@
       --sidebar-width: 225px;
       --primary-color: #3A6EA5; 
       --secondary-color: #004E98;
-      --text-color: #DEBEBEB;
+      --text-color: #EBEBEB;
       --hover-color: #FF6700;
       --mobile-nav-height: auto;
 
