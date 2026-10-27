@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script src="Sidebar.JS" defer></script>
+<title>Sort the Instruments</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#e9eef2; --surface:#f8fafb; --ink:#1c2a36; --muted:#5b6b78; --line:#c5d0d8;
+  --brass:#b4811f; --wood:#2f7a68; --perc:#a6402c; --good:#2f7a68; --bad:#b3342b;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141b21; --surface:#1d2730; --ink:#e8eef2; --muted:#93a3af; --line:#33424e;
+    --brass:#d9a441; --wood:#52b59e; --perc:#e07a63; --good:#52b59e; --bad:#ef7b70;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141b21; --surface:#1d2730; --ink:#e8eef2; --muted:#93a3af; --line:#33424e;
+  --brass:#d9a441; --wood:#52b59e; --perc:#e07a63; --good:#52b59e; --bad:#ef7b70;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.4}
+main{max-width:920px;margin:0 auto;padding:28px 18px 40px}
+header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:22px}
+h1{margin:0;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.sub{margin:6px 0 0;color:var(--muted);max-width:44ch}
+.score{display:flex;gap:10px}
+.stat{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;min-width:92px}
+.stat b{display:block;font-size:1.6rem;font-weight:800;line-height:1.1}
+.stat span{font-size:.85rem;color:var(--muted)}
+.stat.good b{color:var(--good)} .stat.bad b{color:var(--bad)}
+
+.bank{background:var(--surface);border:2px dashed var(--line);border-radius:14px;padding:14px;min-height:96px;display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;transition:border-color .15s}
+.bank-title{margin:0 0 8px;font-weight:600}
+.bank:empty::after{content:"Every instrument is sorted.";color:var(--muted);margin:auto}
+
+.chip{font:inherit;font-weight:600;font-size:1rem;padding:9px 15px;border-radius:999px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);cursor:grab;user-select:none;touch-action:manipulation}
+.chip:active{cursor:grabbing}
+.chip:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.chip.dragging{opacity:.35}
+.chip.selected{background:var(--ink);color:var(--bg)}
+.chip.locked{cursor:default;border-color:transparent;color:#fff}
+.chip.shake{animation:shake .35s;border-color:var(--bad);color:var(--bad)}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media (prefers-reduced-motion:reduce){.chip.shake{animation:none}}
+
+.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media (max-width:700px){.zones{grid-template-columns:1fr}}
+.zone{--c:var(--ink);background:var(--surface);border:2px solid var(--c);border-radius:14px;padding:12px;min-height:200px;display:flex;flex-direction:column;gap:8px;transition:background .15s,transform .15s}
+.zone[data-cat="Brass"]{--c:var(--brass)}
+.zone[data-cat="Woodwinds"]{--c:var(--wood)}
+.zone[data-cat="Percussion"]{--c:var(--perc)}
+.zone h2{margin:0;font-size:1.3rem;font-weight:800;color:var(--c);display:flex;justify-content:space-between;align-items:baseline}
+.zone h2 small{font-size:.9rem;font-weight:600;color:var(--muted)}
+.zone.over{background:color-mix(in srgb,var(--c) 14%,var(--surface));transform:scale(1.015)}
+.zone .items{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start;flex:1}
+.zone .chip.locked{background:var(--c)}
+
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:26px}
+#msg{margin:0;font-weight:600;min-height:1.4em}
+button.reset{font:inherit;font-weight:800;padding:12px 26px;border-radius:10px;border:none;background:var(--ink);color:var(--bg);cursor:pointer}
+button.reset:hover{filter:brightness(1.15)}
+button.reset:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Sort the instruments</h1>
+      <p class="sub">Drag each instrument into its family. On a touch screen, tap an instrument, then tap a family.</p>
+    </div>
+    <div class="score" aria-live="polite">
+      <div class="stat good"><b id="correct">0</b><span>correct of <span id="total">12</span></span></div>
+      <div class="stat bad"><b id="wrong">0</b><span>misses</span></div>
+    </div>
+  </header>
+
+  <p class="bank-title">Instrument bank</p>
+  <div class="bank" id="bank" data-zone="bank"></div>
+
+  <div class="zones" id="zones"></div>
+
+  <div class="bar">
+    <p id="msg" aria-live="polite"></p>
+    <button class="reset" id="reset" type="button">Reset quiz</button>
+  </div>
+</main>
+
+<script>
+
+const POOL = {
+  Brass: ["Trumpet","Trombone","French horn","Tuba","Cornet","Euphonium","Flugelhorn","Bugle","Sousaphone"],
+  Woodwinds: ["Flute","Clarinet","Oboe","Bassoon","Saxophone","Piccolo","English horn","Recorder","Bass clarinet"],
+  Percussion: ["Snare drum","Xylophone","Timpani","Cymbals","Triangle","Marimba","Tambourine","Glockenspiel","Bass drum"]
+};
+const CATS = ["Brass","Woodwinds","Percussion"];
+const PER_CAT = 4;
+
+const bank = document.getElementById("bank");
+const zonesEl = document.getElementById("zones");
+const msg = document.getElementById("msg");
+let correct = 0, wrong = 0, selected = null;
+
+function shuffle(a){
+  a = a.slice();
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function buildZones(){
+  zonesEl.innerHTML = "";
+  CATS.forEach(cat=>{
+    const z = document.createElement("div");
+    z.className = "zone"; z.dataset.cat = cat; z.dataset.zone = cat;
+    z.innerHTML = `<h2>${cat}<small><span class="n">0</span>/${PER_CAT}</small></h2><div class="items"></div>`;
+    zonesEl.appendChild(z);
+  });
+}
+
+function newRound(){
+  correct = 0; wrong = 0; selected = null;
+  msg.textContent = "";
+  buildZones();
+  bank.innerHTML = "";
+  const picks = [];
+  CATS.forEach(cat=>shuffle(POOL[cat]).slice(0,PER_CAT).forEach(name=>picks.push({name,cat})));
+  shuffle(picks).forEach(p=>{
+    const c = document.createElement("button");
+    c.type = "button"; c.className = "chip"; c.draggable = true;
+    c.textContent = p.name; c.dataset.cat = p.cat;
+    bank.appendChild(c);
+  });
+  document.getElementById("total").textContent = picks.length;
+  updateScore();
+}
+
+function updateScore(){
+  document.getElementById("correct").textContent = correct;
+  document.getElementById("wrong").textContent = wrong;
+}
+
+function attempt(chip, zone){
+  if(!chip || !zone || chip.classList.contains("locked")) return;
+  const cat = zone.dataset.cat;
+  if(!cat) return;
+  chip.classList.remove("selected"); selected = null;
+  if(chip.dataset.cat === cat){
+    chip.classList.add("locked"); chip.draggable = false; chip.disabled = true;
+    zone.querySelector(".items").appendChild(chip);
+    zone.querySelector(".n").textContent = zone.querySelectorAll(".chip").length;
+    correct++;
+    msg.textContent = "Yes, " + chip.textContent + " is " + cat.toLowerCase() + ".";
+    if(correct === +document.getElementById("total").textContent){
+      msg.textContent = wrong === 0
+        ? "Perfect score. No misses."
+        : "All sorted, with " + wrong + (wrong === 1 ? " miss." : " misses.");
+    }
+  } else {
+    wrong++;
+    msg.textContent = chip.textContent + " doesn’t belong in " + cat + ". Try again.";
+    chip.classList.remove("shake"); void chip.offsetWidth; chip.classList.add("shake");
+    setTimeout(()=>chip.classList.remove("shake"),400);
+  }
+  updateScore();
+}
+
+/* Mouse drag and drop */
+let dragged = null;
+document.addEventListener("dragstart",e=>{
+  const c = e.target.closest(".chip");
+  if(!c || c.classList.contains("locked")) return;
+  dragged = c; c.classList.add("dragging");
+  e.dataTransfer.effectAllowed = "move";
+  e.dataTransfer.setData("text/plain", c.textContent);
+});
+document.addEventListener("dragend",()=>{
+  if(dragged) dragged.classList.remove("dragging");
+  dragged = null;
+  document.querySelectorAll(".over").forEach(z=>z.classList.remove("over"));
+});
+zonesEl.addEventListener("dragover",e=>{
+  const z = e.target.closest(".zone");
+  if(z){e.preventDefault(); z.classList.add("over");}
+});
+zonesEl.addEventListener("dragleave",e=>{
+  const z = e.target.closest(".zone");
+  if(z && !z.contains(e.relatedTarget)) z.classList.remove("over");
+});
+zonesEl.addEventListener("drop",e=>{
+  e.preventDefault();
+  const z = e.target.closest(".zone");
+  if(z) z.classList.remove("over");
+  attempt(dragged, z);
+});
+
+/* Tap or keyboard: select a chip, then choose a family */
+bank.addEventListener("click",e=>{
+  const c = e.target.closest(".chip");
+  if(!c) return;
+  if(selected) selected.classList.remove("selected");
+  if(selected === c){selected = null; return;}
+  selected = c; c.classList.add("selected");
+  msg.textContent = "Now choose a family for " + c.textContent + ".";
+});
+zonesEl.addEventListener("click",e=>{
+  const z = e.target.closest(".zone");
+  if(z && selected) attempt(selected, z);
+});
+
+document.getElementById("reset").addEventListener("click",newRound);
+newRound();
+</script>
+</body>
+</html>
