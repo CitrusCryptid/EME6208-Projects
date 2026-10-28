@@ -12,34 +12,34 @@
 * (and your page's CSS can't break the sidebar).
 */
 (function () {
-    'use strict';
+'use strict';
 
-    var HOST_ID = 'bf-sidebar-host';
-    var script = document.currentScript;
-    var applyOffset = !(script && script.dataset.offset === 'false');
+var HOST_ID = 'bf-sidebar-host';
+var script = document.currentScript;
+var applyOffset = !(script && script.dataset.offset === 'false'); 
 
-    // Hardcode the absolute base origin combined with your project folder structure.
-    var isGitHub = window.location.hostname.includes('github.io');
-    var ABSOLUTE_BASE = isGitHub
-        ? window.location.origin + '/EME6208-Projects'
-        : window.location.origin;
+// Hardcode the absolute base origin combined with your project folder structure.
+var isGitHub = window.location.hostname.includes('github.io');
+var ABSOLUTE_BASE = isGitHub
+? window.location.origin + '/EME6208-Projects'
+: window.location.origin; 
 
-    // ---------- CONFIG ----------
-    var CONFIG = {
-        name: 'Ben Finkelstein',
-        subtitle: 'EdTech',
-        links: [
-            { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
-            { label: 'Landing', href: '/landingpage/landing.html' },
-            { label: 'Gibbon Quiz', href: '/gibbonquiz/index.html' },
-            { label: 'Drag & Drop - OG', href: '/drag.html' },
-            { label: 'Drag & Drop - AI Ver', href: '/DragAI.html' },
-            { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/' },
-        ]
-    };
+// ---------- CONFIG ----------
+var CONFIG = {
+name: 'Ben Finkelstein',
+subtitle: 'EdTech',
+links: [
+{ label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
+{ label: 'Landing', href: '/landingpage/landing.html'},
+{ label: 'Gibbon Quiz', href: '/gibbonquiz/index.html'},
+{ label: 'Drag & Drop - OG', href: '/drag.html'},
+{ label: 'Drag & Drop - AI Ver', href: '/DragAI.html'},
+{ label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/'},
+]
+}; 
 
-    // ---------- STYLES (inside the shadow root) ----------
-    var SIDEBAR_CSS = `
+// ---------- STYLES (inside the shadow root) ----------
+var SIDEBAR_CSS = `
 :host { all: initial; } 
 
 .sidebar * {
@@ -185,74 +185,72 @@ margin-bottom: 0.5rem;
 .nav-link span { font-size: 0.75rem; }
 }
 
-`;
+`; 
 
-    // ---------- PAGE-LEVEL CSS ----------
-    var PAGE_CSS = body { margin-left: calc(225px + 4rem);
-} @media(max - width: 768px) { body { margin - left: 0; } };
+// ---------- PAGE-LEVEL CSS (Fixed backtick formatting strings) ----------
+var PAGE_CSS = body { margin-left: calc(225px + 4rem); } @media (max-width: 768px) { body { margin-left: 0; } }; 
 
 // ---------- HELPERS ----------
 function escapeHTML(str) {
-    var div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-}
+var div = document.createElement('div');
+div.textContent = str;
+return div.innerHTML;
+} 
 
 function buildMarkup() {
-    var items = CONFIG.links.map(function (l) {
-        var external = l.newTab ? ' target="_blank" rel="noopener noreferrer"' : '';
+var items = CONFIG.links.map(function (l) {
+var external = l.newTab ? ' target="_blank" rel="noopener noreferrer"' : ''; 
 
-        // If the link is already fully qualified, use it. Otherwise, force build an absolute link.
-        var targetHref = (l.href.indexOf('http://') === 0 || l.href.indexOf('https://') === 0)
-            ? l.href
-            : ABSOLUTE_BASE + l.href;
+var targetHref = (l.href.indexOf('http://') === 0 || l.href.indexOf('https://') === 0)
+? l.href
+: ABSOLUTE_BASE + l.href;
 
-        return (
-            '<li class="nav-item">' +
-            '<a href="' + escapeHTML(targetHref) + '" class="nav-link"' + external + '>' +
-            '<span>' + escapeHTML(l.label) + '</span>' +
-            '</a>' +
-            '</li>'
-        );
-    }).join('');
+return (
+'<li class="nav-item">' +
+'<a href="' + escapeHTML(targetHref) + '" class="nav-link"' + external + '>' +
+'<span>' + escapeHTML(l.label) + '</span>' +
+'</a>' +
+'</li>'
+);
+}).join('');
 
-    return (
-        '<aside class="sidebar">' +
-        '<div class="sidebar-header">' +
-        '<div class="logo">' +
-        '<span class="logo-name">' + escapeHTML(CONFIG.name) + '</span>' +
-        '<span class="logo-subtitle">' + escapeHTML(CONFIG.subtitle) + '</span>' +
-        '</div>' +
-        '</div>' +
-        '<ul class="nav-list">' + items + '</ul>' +
-        '</aside>'
-    );
+return (
+'<aside class="sidebar">' +
+'<div class="sidebar-header">' +
+'<div class="logo">' +
+'<span class="logo-name">' + escapeHTML(CONFIG.name) + '</span>' +
+'<span class="logo-subtitle">' + escapeHTML(CONFIG.subtitle) + '</span>' +
+'</div>' +
+'</div>' +
+'<ul class="nav-list">' + items + '</ul>' +
+'</aside>'
+);
 
-}
+} 
 
 function mount() {
-    if (document.getElementById(HOST_ID)) return;
+if (document.getElementById(HOST_ID)) return; 
 
-    var host = document.createElement('div');
-    host.id = HOST_ID;
+var host = document.createElement('div');
+host.id = HOST_ID;
 
-    var shadow = host.attachShadow({ mode: 'open' });
-    shadow.innerHTML = '<style>' + SIDEBAR_CSS + '</style>' + buildMarkup();
+var shadow = host.attachShadow({ mode: 'open' });
+shadow.innerHTML = '<style>' + SIDEBAR_CSS + '</style>' + buildMarkup();
 
-    document.body.insertBefore(host, document.body.firstChild);
+document.body.insertBefore(host, document.body.firstChild);
 
-    if (applyOffset) {
-        var style = document.createElement('style');
-        style.id = HOST_ID + '-page-style';
-        style.textContent = PAGE_CSS;
-        document.head.appendChild(style);
-    }
-
+if (applyOffset) {
+var style = document.createElement('style');
+style.id = HOST_ID + '-page-style';
+style.textContent = PAGE_CSS;
+document.head.appendChild(style);
 }
+
+} 
 
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', mount);
+document.addEventListener('DOMContentLoaded', mount);
 } else {
-    mount();
+mount();
 }
-}) ();
+})();
