@@ -26,7 +26,7 @@
       { label: 'Landing', href: 'EME6208-Projects/Landing/landing.html'},
       { label: 'Gibbon Quiz', href: 'EME6208-Projects/GibbonQuiz/index.html'},
       { label: 'Drag & Drop - OG', href: 'EME6208-Projects/DragAndDrop/drag.html'},
-      { label: 'Drag & Drop - AI Version', href: 'EME6208-Projects/DragAndDrop/DragAI.html'},
+      { label: 'Drag & Drop - AI Ver', href: 'EME6208-Projects/DragAndDrop/DragAI.html'},
       { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/'},
       // { label: 'About', href: '/about.html' },
     ]
