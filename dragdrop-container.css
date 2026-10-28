@@ -44,7 +44,7 @@ body > p {
     flex-direction: row; /* Keep the two columns side by side */
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: Center;
     gap: 20px;
 }
 
@@ -85,11 +85,11 @@ li#indicateDestination { /* Box indicating where content will be dropped - i.e. 
 
 /* LEFT COLUMN CSS */
 div#dhtmlgoodies_listOfItems { /* Left column "Available students" */
-    float: none;
+    float: left;
     flex: 0 0 160px;
     width: 160px;
     min-width: 160px;
-    padding-left: 0;
+    padding-left: 5px;
     padding-right: 0;
     box-sizing: border-box;
 }
