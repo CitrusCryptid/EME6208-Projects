@@ -23,10 +23,10 @@
     subtitle: 'EdTech',
     links: [
       { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
-      { label: 'Landing', href: 'landingpage/landing.html'},
-      { label: 'Gibbon Quiz', href: 'gibbonquiz/index.html'},
-      { label: 'Drag & Drop - OG', href: 'drag.html'},
-      { label: 'Drag & Drop - AI Ver', href: 'DragAI.html'},
+      { label: 'Landing', href: '../landingpage/landing.html'},
+      { label: 'Gibbon Quiz', href: '../gibbonquiz/index.html'},
+      { label: 'Drag & Drop - OG', href: '../drag.html'},
+      { label: 'Drag & Drop - AI Ver', href: '../DragAI.html'},
       { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/'},
       // { label: 'About', href: '/about.html' },
     ]
