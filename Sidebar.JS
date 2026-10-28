@@ -118,7 +118,7 @@
 
     .nav-link:hover {
       background: var(--hover-color);
-      color: var(--primary-color);
+      color: var(--text-color);
       transform: translateX(10px);
       border-color: var(--primary-color);
       box-shadow: 0 0 20px rgba(19, 175, 240, 0.1);
