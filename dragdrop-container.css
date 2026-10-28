@@ -201,3 +201,27 @@ div#dhtmlgoodies_mainContainer {
     transform: scale(1.08);
     box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
 }
+
+#resetWrap {
+    text-align: center;
+    margin: 10px auto;
+}
+
+#resetBtn {
+    background-color: Gold;
+    color: #000;
+    border: 1px solid #000;
+    padding: 8px 24px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#resetBtn:hover {
+    transform: scale(1.5);
+    background-color: teal;
+    color: gold;
+    box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
+}

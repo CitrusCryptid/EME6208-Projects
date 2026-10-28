@@ -4,13 +4,12 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <script src="Sidebar.JS" defer></script>
-
-<title>Drag and Drop Quiz</title>
+	<title>Drag and Drop Quiz</title>
 	
 	 <link rel="stylesheet" href="dragdrop-container.css">
 	
 	
-<script type="text/javascript">
+	<script type="text/javascript">
 	
 	/* VARIABLES YOU COULD MODIFY */
 var boxSizeArray = [3,3,3,3,3,3,3];   // How many items fit in each right-column box
@@ -352,6 +351,45 @@ function initDragDropScript()
     }
 }
 
+
+    function resetQuiz()
+{
+    var allItemsObj = document.getElementById('allItems');
+
+    // Move every placed item back to the instruments list and clear red/green
+    for(var no=0;no<destinationBoxes.length;no++){
+        var placed = destinationBoxes[no].getElementsByTagName('LI');
+        while(placed.length>0){
+            placed[0].className = '';
+            allItemsObj.appendChild(placed[0]);
+        }
+    }
+
+    // Clear any leftover colors in the instruments list
+    var listItems = allItemsObj.getElementsByTagName('LI');
+    for(var no=0;no<listItems.length;no++){
+        listItems[no].className = '';
+    }
+
+    // Clear any hover highlight or drag indicators
+    if(mouseoverObj){ mouseoverObj.className = ''; mouseoverObj = false; }
+    destinationObj = false;
+    contentToBeDragged = false;
+    dragDropIndicator.style.display = 'none';
+    if(indicateDestinationBox) indicateDestinationBox.style.display = 'none';
+
+    // Re-shuffle
+    if(initShuffleItems){
+        for(var no=0;no<(listItems.length*10);no++){
+            var itemIndex = Math.floor(Math.random()*listItems.length);
+            allItemsObj.appendChild(listItems[itemIndex]);
+        }
+    }
+
+    document.getElementById('saveContent').innerHTML = '';
+    updatePositions();
+}
+
 window.onload = initDragDropScript;
 window.onresize = updatePositions;
 	
@@ -391,6 +429,11 @@ window.onresize = updatePositions;
 		
 	</div>
 </div>
+  
+  <div id="resetWrap">
+    <button type="button" id="resetBtn" onclick="resetQuiz()">Reset</button>
+</div>
+  
 <ul id="dragContent" style="position:absolute; display:none; left:0; top:0; width:150px; margin:0; padding:0; list-style:none; z-index:1000; pointer-events:none;"></ul>
 <div id="dragDropIndicator" style="position:absolute; display:none; left:0; top:0; z-index:1000;"><img src="insert.gif"></div>
 <div id="saveContent"></div>
