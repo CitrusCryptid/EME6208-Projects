@@ -194,3 +194,10 @@ div#dhtmlgoodies_mainContainer {
     background-color: #FF6F59;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
 }
+
+/* Placed items: enlarge on hover but keep their green/red coloring */
+#dhtmlgoodies_dragDropContainer ul li.correctAnswer:hover,
+#dhtmlgoodies_dragDropContainer ul li.wrongAnswer:hover {
+    transform: scale(1.08);
+    box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
+}
