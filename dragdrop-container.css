@@ -67,6 +67,7 @@ li#indicateDestination { /* Movable items, i.e. <LI> */
     line-height: 19px;
 }
 
+
 li#indicateDestination { /* Box indicating where content will be dropped - i.e. the one you use if you don't use arrow */
     border: 3px dotted #600000;
     background-color: #347766;
@@ -84,11 +85,10 @@ li#indicateDestination { /* Box indicating where content will be dropped - i.e. 
 
 
 /* LEFT COLUMN CSS */
-div#dhtmlgoodies_listOfItems { /* Left column "Available students" */
-    float: left;
-    flex: 0 0 160px;
-    width: 160px;
-    min-width: 160px;
+div#dhtmlgoodies_listOfItems { /* Left column "Available to students" */
+    flex: 0 0 200px;
+    width: 200px;
+    min-width: 200px;
     padding-left: 5px;
     padding-right: 0;
     box-sizing: border-box;
@@ -122,23 +122,22 @@ div#dhtmlgoodies_listOfItems div ul { /* Left column <ul> */
 
 
 #dhtmlgoodies_dragDropContainer .mouseover { /* Mouse over effect DIV box in right column */
-    background-color: #E2EBED;
-    border: 5px solid #7BAD93;
+    background-color: gold;
 }
 
 /* Right column DIV */
 div#dhtmlgoodies_mainContainer {
     float: none;
-    flex: 0 0 550px;
-    width: 550px;
-    min-width: 550px;
+    flex: 0 0 750px;
+    width: 750px;
+    min-width: 750px;
 
     display: flex;
     flex-direction: row; /* Keep the three category boxes side by side */
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 10px;
+    gap: 15px;
 }
 
 /* Parent <div> of small boxes */
@@ -147,7 +146,7 @@ div#dhtmlgoodies_mainContainer {
     flex: 0 0 170px;
     width: 170px;
     height: auto;
-    margin: 0;
+    margin: 15px;
     background-color: #7BAD93;
     border: 1px solid #999;
     box-sizing: border-box;
@@ -156,7 +155,7 @@ div#dhtmlgoodies_mainContainer {
 /* Heading above small boxes */
 #dhtmlgoodies_mainContainer > div > p {
     display: block;
-    margin: 0;
+    margin: 0px;
     padding: 5px;
     font-weight: bold;
     background-color: #43AA8B;
@@ -168,10 +167,30 @@ div#dhtmlgoodies_mainContainer {
     display: block;
     width: auto;
     height: 100px;
-    margin: 0;
+    margin: 10px;
     padding: 5px;
-    border: 0;
     background-color: #7BAD93;
     box-sizing: border-box;
     overflow: hidden;
+}
+
+/* ---- HOVER / DRAG EFFECT ---- */
+#dhtmlgoodies_dragDropContainer li {
+    transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hovering an item that hasn't been placed yet (placed items keep their green/red) */
+#dhtmlgoodies_dragDropContainer li:not(.correctAnswer):not(.wrongAnswer):hover {
+    transform: scale(1.08);
+    background-color: Teal;
+    color: #FFFFFF;
+  border: 5px dotted gold;
+    box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* The item while it's being dragged (it can't be hovered because pointer-events is off) */
+#dragContent li {
+    transform: scale(1.1);
+    background-color: #FF6F59;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
 }
