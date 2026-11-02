@@ -51,6 +51,10 @@
         --mobile-nav-height: auto;
 
         font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
         position: fixed;
         left: 0;
         top: 0;
