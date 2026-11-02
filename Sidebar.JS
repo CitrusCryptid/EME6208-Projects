@@ -24,10 +24,10 @@
         links: [
         { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
         { label: 'Landing', href: 'https://citruscryptid.github.io/EME6208-Projects/index.html' },
-        { label: 'Gibbon Quiz', href: 'https://citruscryptid.github.io/EME6208-Projects/gibbonquiz.html' },
-        { label: 'Drag & Drop - OG', href: 'https://citruscryptid.github.io/EME6208-Projects/drag.html' },
-        { label: 'Drag & Drop - AI Version', href: 'https://citruscryptid.github.io/EME6208-Projects/DragAI.html' },
-        { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/' },
+        { label: 'Gibbon Quiz', href: 'https://citruscryptid.github.io/EME6208-Projects/gibbon-quiz/index.html' },
+        { label: 'Drag & Drop - OG', href: 'https://citruscryptid.github.io/EME6208-Projects/drag-drop/index.html' },
+        { label: 'Drag & Drop - AI Version', href: 'https://citruscryptid.github.io/EME6208-Projects/drag-ai/index.html' },
+        { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/MuscleTrainerGame/game/index.html' },
         ]
     };
 
