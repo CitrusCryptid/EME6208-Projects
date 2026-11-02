@@ -1,196 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="quizcontainer.css">
-  <script src="Sidebar.JS" defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GibbonQuiz</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="landing.css">
+    <script src="Sidebar.JS"></script>
 </head>
 
 <body>
-  <div class="quiz-container">
-    <table border="0" cellspacing="0" cellpadding="0" width="100%">
-      <tr>
-        <td width="50%">
-          <form method="POST" name="instantquiz">
-            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-              <caption><strong>Pop Quiz: Gibbon Trivia</strong></caption>
-              <tr>
-                <td width="100%">
-                  <div align="center">
-                    <center>
-                      <p>
-                        <textarea rows="10" name="thequestion" align="center" cols="69" wrap="virtual" readonly></textarea>
-                      </p>
-                </td>
-              </tr>
-              <tr align="center">
-                <td width="50%">
-                  <div align="center">
-                    <center>
-                      <p><strong>Comments: </strong>
-                        <input type="text" name="thesolution" size="35" readonly>
-                </td>
-              </tr>
-              <tr align="center">
-                <td width="100%">
-                  <div align="center">
-                      <label><input type="radio" name="theresponse" value="a" onClick="responses()"> a</label>
-                      <label><input type="radio" name="theresponse" value="b" onClick="responses()"> b</label>
-                      <label><input type="radio" name="theresponse" value="c" onClick="responses()"> c</label>
-                      <label><input type="radio" name="theresponse" value="d" onClick="responses()"> d</label>
-                      <br>
-                        <input type="button" value="&lt;&lt;Back" name="B1" onClick="goBack()"> 
-                        <input type="button" value="Next&gt;&gt;" name="B2" onClick="goNext()">
-                      <br>
-                      <small>
-                        <a href="#"
-                          onClick="whichone=1; answered=new Array(); generatequestions(); document.instantquiz.thesolution.value=''; return false;">Start Over</a>
-                      </small>
-                      <input type="checkbox" name="cmode" value="ON"> <small>Cheat Mode</small>
-                </td>
-              </tr>
-            </table>
-          </form>
-        </td>
-      </tr>
-    </table>
-  </div>
+    <main>
+        <aside class="sidebar " data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQHgwscLN1v50w/profile-displayphoto-scale_400_400/B4EZyDN7LrKIAk-/0/1771727992411?e=1795046400&v=beta&t=p4uHZOQM1ZKhFRdbQSRntcopwmVQOfzBk1Ra4OSAWlA" alt="avatar" width="80">
+                </figure>
 
-  </script>
-  <!-- 1. Load your questions/answers file FIRST so total, question, choice1..., solution
-        and compliments exist before the quiz code runs. Use your real filename. -->
-  <script language="JavaScript1.1" src="../pop.js"></script>
+                <div class="info-content">
+                    <h1 class="name" title="Ben Finkelstein">Ben Finkelstein</h1>
+                    <p class="title">Instructional Designer</p>
+                </div>
 
-  <!-- 2. Quiz code. This must come AFTER the form in the page. -->
-  <script language="JavaScript1.1">
-    // Which question is currently showing (starts at question 1)
-    var whichone = 1
-    //Locks answer selection after user has answered a question
-    var answered = new Array()
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
 
-    // Enables or disables all four bubbles at once
-    //does this even work lol
-    function setRadiosDisabled(state) {
-      var radios = document.instantquiz.theresponse
-      for (var i = 0; i < radios.length; i++) {
-        radios[i].disabled = state
-      }
-    }
-    // Shortcut to the question textarea
-    var tempmn = document.instantquiz.thequestion
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
 
-    // Returns the letter of the checked radio button ("a"-"d"), or null if none is checked
-    function getSelectedResponse() {
-      var radios = document.instantquiz.theresponse
-      for (var i = 0; i < radios.length; i++) {
-        if (radios[i].checked) return radios[i].value
-      }
-      return null
-    }
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
 
-    // Unchecks all radio buttons (replaces the old dropdown reset)
-    function clearResponse() {
-      var radios = document.instantquiz.theresponse
-      for (var i = 0; i < radios.length; i++) {
-        radios[i].checked = false
-      }
-    }
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
 
-    // "<<Back" button: previous question, never below 1
-    function goBack() {
-      if (whichone > 1) {
-        whichone--
-        generatequestions()
-      }
-    }
+                            <a href="mailto:b.finkelstein@ufl.edu" class="contact-link">b.finkelstein@ufl.edu</a>
+                        </div>
+                    </li>
 
-    // "Next>>" button: next question, up to one past the last (the "End of quiz" screen)
-    function goNext() {
-      if (whichone <= total) {
-        whichone++
-        generatequestions()
-      }
-    }
+                  <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
 
-    // Draws the current question and its four choices into the textarea
-    function generatequestions() {
-      // Uncheck all bubbles and unlock them (they may have been locked on the last question)
-      clearResponse()
-      setRadiosDisabled(false)
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
 
-      // Clear the feedback box, unless Cheat Mode is on and we're on a real question
-      if (!document.instantquiz.cmode.checked || whichone >= total + 1 || whichone <= 0)
-        document.instantquiz.thesolution.value = ''
+                            <address>Gainesville, Florida</address>
+                        </div>
+                    </li>
+                </ul>
 
-      if (whichone >= total + 1) {
-        // Past the last question: show the ending message and lock the bubbles
-        tempmn.value = "End of quiz"
-        setRadiosDisabled(true)
-      } else {
-        tempmn.value = whichone + ")" + question[whichone] + "\n\n" +
-          "a)" + eval('choice' + whichone + '[1]') + "\n" +
-          "b)" + eval('choice' + whichone + '[2]') + "\n" +
-          "c)" + eval('choice' + whichone + '[3]') + "\n" +
-          "d)" + eval('choice' + whichone + '[4]')
+                <div class="separator"></div>
 
-        if (document.instantquiz.cmode.checked)
-          document.instantquiz.thesolution.value = solution[whichone]
+                <ul class="social-list">
+                 <li class="social-item"><a href="https://www.linkedin.com/in/ben-finkelstein/" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                </ul>
+            </div>
+        </aside>
 
-        // If this question was already answered, restore the old choice and keep it locked
-        var saved = answered[whichone]
-        if (saved) {
-          var radios = document.instantquiz.theresponse
-          for (var i = 0; i < radios.length; i++) {
-            if (radios[i].value == saved.choice) radios[i].checked = true
-          }
-          document.instantquiz.thesolution.value = saved.feedback
-          setRadiosDisabled(true)
-        }
-      }
-    }
+        <div class="main-content">
+            <article class="about active" data-page="about">
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
 
-    // Runs when a radio button is clicked: checks the answer and shows feedback
-    function responses() {
-      var chosen = getSelectedResponse()
+                <section class="about-text">
+                    <p>I’m focused on building technology that makes learning more engaging, intuitive, and genuinely effective. My work in education technology is driven by a belief that great learning experiences shouldn’t feel like systems to navigate... they should feel like environments people want to be in.
+Before transitioning into edtech, I worked in game development as a VFX artist, where I learned how visual feedback, interactivity, and immersion shape the way people engage with complex systems. That experience continues to inform my approach today: I design learning tools with the same intentionality as interactive experiences—where clarity, responsiveness, and motivation are core to the design.
+I’m particularly interested in how principles from games and creative technology can be applied to education to improve engagement, support skill development, and sustain long-term motivation. My goal is to build learning experiences that don’t just deliver information, but actively help people progress, experiment, and grow.</p>
+                </section>
 
-      // Nothing selected, End of quiz screen, or already answered: do nothing
-      if (chosen === null || whichone > total || answered[whichone]) return
+                  
+<section class="experience">
+    <h3 class="h3 experience-title">Experience</h3>
+ 
+    <div class="table-wrapper has-scrollbar">
+        <table class="resume-table">
+            <thead>
+                <tr>
+                    <th scope="col">Role</th>
+                    <th scope="col">Company, Location</th>
+                    <th scope="col">Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td data-label="Role">Instructional Design Intern</td>
+                    <td data-label="Company, Location">University of Florida Center for Instructional Technology and Teaching (CITT), Gainesville, FL</td>
+                    <td data-label="Duration">May 2026 &ndash; April 2027</td>
+                </tr>
+                <tr>
+                    <td data-label="Role">QA/VFX</td>
+                    <td data-label="Company, Location">Grove Street Games, Gainesville, FL</td>
+                    <td data-label="Duration">July 2025 &ndash; January 2026</td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Multimedia Specialist</td>
+                    <td data-label="Company, Location">Motor City Performing Arts, Detroit, MI</td>
+                    <td data-label="Duration">November 2024 &ndash; May 2025</td>
+                </tr>
+                <tr>
+                    <td data-label="Role">Percussion Coordinator</td>
+                    <td data-label="Company, Location">West Bloomfield School District, West Bloomfield, MI</td>
+                    <td data-label="Duration">April 2022 &ndash; July 2025</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
-      var message
-      if (chosen != solution[whichone])
-        message = "Sorry, the correct answer is " + solution[whichone]
-      else
-        message = compliments[Math.floor(Math.random() * compliments.length)]
+  <section class="service">
+                    <h3 class="h3 service-title">Media Services</h3>
 
-      document.instantquiz.thesolution.value = message
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/4389jZkP/icon-design.png" alt="icon" width="40">
+                            </div>
 
-      // Save the result and lock the bubbles so there's no second try
-      answered[whichone] = { choice: chosen, feedback: message }
-      setRadiosDisabled(true)
-    }
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Instructional Design</h4>
+                            </div>
+                        </li>
 
-    // Next button should only advances if an answer has been selected
-    function goNext() {
-      // Already on the "End of quiz" screen: nothing left to advance to
-      if (whichone > total) return
 
-      if (getSelectedResponse() === null) {
-        document.instantquiz.thesolution.value = "Please select an answer before continuing."
-        return
-      }
-      whichone++
-      generatequestions()
-    }
-    generatequestions()
-  </script>
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/0NL8zHpx/icon-photo.png" alt="icon" width="40">
+                            </div>
 
-  </script>
-  <script src="./script.js"></script>
-  </div>
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title">Photography</h4>
+                            </div>
+                        </li>
+                    </ul>
+                    </section>
+                  
+    <script src="main.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
-
 </html>
