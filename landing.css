@@ -2,43 +2,43 @@
 
 /* Dark-only portfolio palette, typography scale, shadows, and motion tokens. */
 :root {
-    --bg-gradient-onyx: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
-    /* dark stone surface gradient. */
-    --bg-gradient-jet: linear-gradient(to bottom right, hsla(240, 1%, 18%, .251) 3%, hsla(240, 2%, 11%, 0) 100%), hsl(240, 2%, 13%);
-    /* dark layered card gradient. */
-    --bg-gradient-yellow1: linear-gradient(to bottom right, hsl(45, 100%, 71%) 0%, hsla(36, 100%, 69%, 0) 50%);
-    /* soft gold hover gradient. */
-    --bg-gradient-yellow2: linear-gradient(135deg, hsla(45, 100%, 71%, .251) 0%, hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%);
-    /* gold-accent dark hover surface. */
-    --border-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%);
-    /* subtle dark border gradient. */
-    --text-gradient-yellow: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%));
-    /* gold heading gradient. */
+    --bg-gradient-onyx: linear-gradient(to bottom right, #3c3c3c 3%, #252526 97%);
+    /* Gradient between VS Code border and panel tones. */
+    --bg-gradient-jet: linear-gradient(to bottom right, rgba(60, 60, 60, .25) 3%, transparent 100%), #252526;
+    /* Subtle layered VS Code panel surface. */
+    --bg-gradient-yellow1: linear-gradient(to bottom right, #3794ff 0%, rgba(55, 148, 255, 0) 50%);
+    /* VS Code blue hover highlight. */
+    --bg-gradient-yellow2: linear-gradient(135deg, rgba(55, 148, 255, .25) 0%, rgba(55, 148, 255, 0) 59.86%), #252526;
+    /* Blue-accented VS Code panel surface. */
+    --border-gradient-onyx: linear-gradient(to bottom right, #3c3c3c 0%, rgba(60, 60, 60, 0) 50%);
+    /* Subtle VS Code panel border gradient. */
+    --text-gradient-yellow: linear-gradient(to right, #4fc1ff, #3794ff);
+    /* VS Code light-blue to accent-blue heading gradient. */
 
-    --jet: hsl(0, 0%, 22%);
-    /* dark border gray. */
-    --onyx: hsl(240, 1%, 17%);
-    /* dark neutral gray. */
-    --eerie-black1: hsl(240, 2%, 13%);
-    /* raised near-black surface. */
-    --eerie-black2: hsl(240, 2%, 12%);
-    /* deeper near-black surface. */
-    --smoky-black: hsl(0, 0%, 7%);
-    /* page background black. */
-    --white1: hsl(0, 0%, 100%);
-    /* primary high-contrast text. */
-    --white2: hsl(0, 0%, 98%);
-    /* secondary high-contrast text. */
-    --orange-yellow-crayola: hsl(45, 100%, 72%);
-    /* gold interaction accent. */
-    --vegas-gold: hsl(45, 54%, 58%);
-    /* muted gold accent. */
-    --light-gray: hsl(0, 0%, 84%);
-    /* secondary text gray. */
-    --light-gray70: hsla(0, 0%, 84%, .7);
-    /* translucent secondary text gray. */
-    --bittersweet-shimmer: hsl(0, 43%, 51%);
-    /* muted red accent. */
+    --jet: #3c3c3c;
+    /* VS Code panel border gray. */
+    --onyx: #252526;
+    /* VS Code sidebar surface. */
+    --eerie-black1: #2d2d30;
+    /* VS Code raised widget surface. */
+    --eerie-black2: #252526;
+    /* VS Code panel surface. */
+    --smoky-black: #1e1e1e;
+    /* VS Code editor background. */
+    --white1: #ffffff;
+    /* High-contrast white. */
+    --white2: #d4d4d4;
+    /* VS Code default foreground text. */
+    --orange-yellow-crayola: #007acc;
+    /* VS Code blue interaction accent. */
+    --vegas-gold: #4fc1ff;
+    /* VS Code light-blue syntax accent. */
+    --light-gray: #cccccc;
+    /* VS Code secondary foreground tone. */
+    --light-gray70: rgba(204, 204, 204, .7);
+    /* Translucent secondary foreground tone. */
+    --bittersweet-shimmer: #f14c4c;
+    /* VS Code error red. */
 
     --ff-poppins: 'Poppins', sans-serif;
     /* portfolio typeface. */
@@ -955,7 +955,7 @@ article.active {
 }
 
 .select-item button:hover {
-    --eerie-black2: hsl(240, 2%, 20%);
+    --eerie-black2: #2d2d30;
 }
 
 .project-list {

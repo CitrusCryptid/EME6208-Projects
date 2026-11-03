@@ -45,13 +45,13 @@
         /* Draw the fixed-width, dark sidebar rail and its shared color tokens. */
         .sidebar {
         --sidebar-width: 225px;
-        --bg: hsl(0, 0%, 7%);
-        --surface: hsl(240, 2%, 12%);
-        --border: hsl(0, 0%, 22%);
-        --text: hsl(0, 0%, 98%);
-        --muted: hsl(0, 0%, 76%);
-        --accent: hsl(45, 100%, 72%);
-        --accent-soft: hsl(35, 100%, 68%);
+        --bg: #1e1e1e;
+        --surface: #252526;
+        --border: #3c3c3c;
+        --text: #d4d4d4;
+        --muted: #9d9d9d;
+        --accent: #007acc;
+        --accent-soft: #3794ff;
         --mobile-nav-height: auto;
 
         font-family: 'Poppins', system-ui, -apple-system, sans-serif;
@@ -68,7 +68,7 @@
         overflow-y: auto;
         padding: 1.5rem 1rem;
         color: var(--text);
-        background: linear-gradient(155deg, hsl(240, 2%, 13%), var(--bg) 72%);
+        background: linear-gradient(155deg, #2d2d30, var(--bg) 72%);
         border-right: 1px solid var(--border);
         box-shadow: 8px 0 32px rgba(0, 0, 0, .22);
         z-index: 1000;
@@ -111,7 +111,7 @@
         .logo-subtitle {
         font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
         color: var(--accent);
-        font-size: .75rem;
+        font-size: 1rem;
         font-weight: 500;
         text-align: center;
         letter-spacing: .08em;
@@ -145,10 +145,10 @@
         }
 
         .nav-link:hover, .nav-link:focus-visible {
-        background: linear-gradient(135deg, hsla(45, 100%, 72%, .14), hsla(35, 100%, 68%, .04));
+        background: linear-gradient(135deg, rgba(55, 148, 255, .14), rgba(0, 122, 204, .04));
         color: var(--accent);
         transform: translateX(5px);
-        border-color: hsla(45, 100%, 72%, .25);
+        border-color: rgba(55, 148, 255, .35);
         box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
         outline: none;
         }
@@ -169,7 +169,7 @@
         .sidebar-header { margin-bottom: .55rem; padding: .25rem .5rem .65rem; }
         .logo { gap: .1rem; }
         .logo-name { font-size: 2.2rem; }
-        .logo-subtitle { font-size: .68rem; }
+        .logo-subtitle { font-size: .9rem; }
         .nav-list {
             flex-direction: row;
             flex-wrap: wrap;
