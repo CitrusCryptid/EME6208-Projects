@@ -70,6 +70,7 @@ li#indicateDestination { /* Movable items, i.e. <LI> */
     box-sizing: content-box;
     list-style-type: none;
     height: 15px;
+    color: charcoal;
     background-color: gold;
     color: charcoal;
     border: 1px solid #000;

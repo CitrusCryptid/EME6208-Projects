@@ -1404,6 +1404,7 @@ textarea.form-input::-webkit-realizer {
 /* Responsive layout changes for tablet, desktop, and wide screens. */
 
 @media (min-width: 450px) {
+
     /* Keep client logos in a compact row on narrow screens. */
     .clients-item {
         min-width: calc(33.33% - 10px);
@@ -1416,6 +1417,7 @@ textarea.form-input::-webkit-realizer {
 }
 
 @media (min-width: 580px) {
+
     /* Increase type scale and switch the sidebar/main layout for tablets. */
     :root {
         --fs1: 32px;
