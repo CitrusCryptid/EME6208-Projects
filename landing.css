@@ -413,6 +413,9 @@ article { display: none; }
 
 .service-item {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
     background: var(--border-gradient-onyx);
     padding: 20px;
     border-radius: 14px;
@@ -429,11 +432,27 @@ article { display: none; }
         z-index: -1;
     }
 
-.service-icon-box { margin-bottom: 10px; }
-    .service-icon-box img { margin: auto; }
+.service-icon-box {
+    flex: 0 0 40px;
+    margin: 0;
+}
 
-.service-content-box { text-align: center; }
-.service-item-title { margin-bottom: 7px; }
+.service-icon-box img {
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    object-fit: contain;
+}
+
+.service-content-box {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    align-items: center;
+    text-align: left;
+}
+
+.service-item-title { margin: 0; }
 
 .service-item-text {
     color: var(--light-gray);
@@ -1248,17 +1267,16 @@ textarea.form-input {
     .service-item {
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
         gap: 18px;
         padding: 30px;
     }
 
     .service-icon-box {
-        margin-bottom: 0;
-        margin-top: 5px;
+        margin: 0;
     }
 
-    .service-content-box { text-align: middle; }
+    .service-content-box { text-align: left; }
 
     .testimonials-title { margin-bottom: 25px; }
 
@@ -1580,7 +1598,12 @@ textarea.form-input {
     font-size: 32px;
 }
 
-/* Preserve the original Poppins face for the service-card labels. */
+/* Keep service-card labels in Poppins, smaller than the section headings, on one line. */
 .main-content .service-item-title {
     font-family: var(--ff-poppins);
+    font-weight: var(--fw400);
+    font-size: clamp(1rem, 4vw, 1.25rem);
+    line-height: 1.2;
+    text-align: left;
+    white-space: nowrap;
 }

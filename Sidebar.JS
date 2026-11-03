@@ -96,15 +96,16 @@
 
         /* Make the sidebar name the visual heading while keeping it inside the rail. */
         .logo-name {
-        max-width: 100%;
-        white-space: normal;
+        max-width: none;
+        white-space: nowrap;
         text-align: center;
         font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
         color: var(--text);
-        font-size: 3.6rem;
+        font-size: 2.2rem;
         line-height: 1.05;
         font-weight: 600;
         letter-spacing: -.03em;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, .7), 0 5px 14px rgba(0, 0, 0, .55);
         }
 
         .logo-subtitle {
@@ -115,6 +116,7 @@
         text-align: center;
         letter-spacing: .08em;
         text-transform: uppercase;
+        text-shadow: 0 2px 0 rgba(0, 0, 0, .7), 0 5px 14px rgba(0, 0, 0, .55);
         }
 
         /* Stack navigation links with consistent spacing. */
@@ -166,7 +168,7 @@
         }
         .sidebar-header { margin-bottom: .55rem; padding: .25rem .5rem .65rem; }
         .logo { gap: .1rem; }
-        .logo-name { font-size: 3rem; }
+        .logo-name { font-size: 2.2rem; }
         .logo-subtitle { font-size: .68rem; }
         .nav-list {
             flex-direction: row;
@@ -186,7 +188,7 @@
         /* Reduce spacing and type slightly on narrow phones. */
         @media (max-width: 480px) {
         .sidebar { padding: .65rem .75rem; }
-        .logo-name { font-size: 2.7rem; }
+        .logo-name { font-size: 2.2rem; }
         .nav-link { min-height: 34px; padding: .4rem .6rem; font-size: .75rem; }
         }
 
