@@ -35,10 +35,13 @@
     var SIDEBAR_CSS = `
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        /* Reset inherited page styles inside the isolated sidebar shadow root. */
         :host { all: initial; }
+        /* Keep sidebar dimensions predictable and clear browser spacing defaults. */
         .sidebar, .sidebar * { box-sizing: border-box; }
         .sidebar * { margin: 0; padding: 0; }
 
+        /* Draw the fixed-width, dark sidebar rail and its shared color tokens. */
         .sidebar {
         --sidebar-width: 225px;
         --bg: hsl(0, 0%, 7%);
@@ -70,6 +73,7 @@
         z-index: 1000;
         }
 
+        /* Center the name and subtitle at the top of the rail. */
         .sidebar-header {
         display: flex;
         align-items: center;
@@ -104,6 +108,7 @@
         text-transform: uppercase;
         }
 
+        /* Stack navigation links with consistent spacing. */
         .nav-list {
         list-style: none;
         display: flex;
@@ -111,6 +116,7 @@
         gap: .45rem;
         }
 
+        /* Give each destination a full-width, high-contrast clickable row. */
         .nav-link {
         display: flex;
         align-items: center;
@@ -138,6 +144,7 @@
 
         .nav-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+        /* Turn the rail into a compact full-width navigation panel on small screens. */
         @media (max-width: 768px) {
         .sidebar {
             width: 100%;
@@ -167,6 +174,7 @@
         .nav-link:hover, .nav-link:focus-visible { transform: translateY(-2px); }
         }
 
+        /* Reduce spacing and type slightly on narrow phones. */
         @media (max-width: 480px) {
         .sidebar { padding: .65rem .75rem; }
         .logo-name { font-size: 1rem; }

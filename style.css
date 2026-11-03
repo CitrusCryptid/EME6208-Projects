@@ -1,54 +1,10 @@
-/* Site-wide theme tokens and base styles. Page stylesheets can override these. */
+/* Shared dark theme tokens available to every page in this repository. */
 :root {
-  color-scheme: light dark;
-  --theme-bg: #f6f5f1;
-  --theme-surface: #ffffff;
-  --theme-text: #20211f;
-  --theme-muted: #666963;
-  --theme-border: #deded8;
-  --theme-accent: #b4811f;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color-scheme: dark; /* Keep native browser controls in dark mode. */
+  --theme-bg: #161614; /* Default dark page background. */
+  --theme-surface: #22221f; /* Raised card and control surfaces. */
+  --theme-text: #f1f0eb; /* Primary foreground text. */
+  --theme-muted: #b2b1aa; /* Supporting text. */
+  --theme-border: #3b3b36; /* Subtle dark borders. */
+  --theme-accent: #d9a441; /* Shared gold accent. */
 }
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --theme-bg: #161614;
-    --theme-surface: #22221f;
-    --theme-text: #f1f0eb;
-    --theme-muted: #b2b1aa;
-    --theme-border: #3b3b36;
-    --theme-accent: #d9a441;
-  }
-}
-
-:root[data-theme="light"] {
-  color-scheme: light;
-  --theme-bg: #f6f5f1;
-  --theme-surface: #ffffff;
-  --theme-text: #20211f;
-  --theme-muted: #666963;
-  --theme-border: #deded8;
-  --theme-accent: #b4811f;
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --theme-bg: #161614;
-  --theme-surface: #22221f;
-  --theme-text: #f1f0eb;
-  --theme-muted: #b2b1aa;
-  --theme-border: #3b3b36;
-  --theme-accent: #d9a441;
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { color-scheme: light dark; }
-body {
-  margin: 0;
-  background-color: var(--theme-bg);
-  color: var(--theme-text);
-  font-family: inherit;
-  line-height: 1.5;
-}
-img, svg, video, canvas { max-width: 100%; }
-a { color: inherit; }
