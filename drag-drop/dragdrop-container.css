@@ -1,7 +1,23 @@
+/* Match the AI activity's dark surfaces, text, borders, and answer-state colors. */
+:root {
+    color-scheme: dark;
+    --bg: #141b21;
+    --surface: #1d2730;
+    --ink: #e8eef2;
+    --muted: #93a3af;
+    --line: #33424e;
+    --brass: #d9a441;
+    --wood: #52b59e;
+    --perc: #e07a63;
+    --good: #52b59e;
+    --bad: #ef7b70;
+}
+
 /* Set the legacy drag-and-drop page canvas, type, and base spacing. */
 body {
     font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif; /* Font to use */
-    background-color: #254441;
+    background-color: var(--bg);
+    color: var(--ink);
 }
 
 /* Style the game title and short instructions above the activity. */
@@ -12,13 +28,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     text-align: center;
-    color: #FF6F59;
+    color: var(--ink);
 }
 
 /* Position the introductory text beneath the title. */
 body > p {
     text-align: center;
-    color: #B2B09B;
+    color: var(--muted);
 }
 
 /* Place the game controls and footer below the matching activity columns. */
@@ -27,7 +43,8 @@ body > p {
     text-align: right;
     clear: both;
     padding-right: 0px;
-    background-color: #317082;
+    background-color: var(--surface);
+    border-top: 1px solid var(--line);
     margin: 2px auto 0;
     width: 1000px;
     box-sizing: border-box;
@@ -44,8 +61,8 @@ body > p {
 #dhtmlgoodies_dragDropContainer { /* Main container for this script */
     width: 1000px;
     height: 500px;
-    border: 1px solid #317082;
-    background-color: #2E5652;
+    border: 1px solid var(--line);
+    background-color: var(--surface);
     -moz-user-select: none;
     margin: 10px auto;
     box-sizing: border-box;
@@ -70,10 +87,9 @@ li#indicateDestination { /* Movable items, i.e. <LI> */
     box-sizing: content-box;
     list-style-type: none;
     height: 15px;
-    color: charcoal;
-    background-color: gold;
-    color: charcoal;
-    border: 1px solid #000;
+    background-color: var(--bg);
+    color: var(--ink);
+    border: 1px solid var(--line);
     padding: 10px;
     margin: 5px;
     cursor: pointer;
@@ -84,18 +100,18 @@ li#indicateDestination { /* Movable items, i.e. <LI> */
 
 
 li#indicateDestination { /* Box indicating where content will be dropped - i.e. the one you use if you don't use arrow */
-    border: 3px dotted #600000;
-    background-color: #347766;
+    border: 3px dotted var(--brass);
+    background-color: var(--surface);
 }
 
 #dhtmlgoodies_dragDropContainer ul li.correctAnswer { /* Correctly moved item */
-    background-color: green;
-    color: #FFF;
+    background-color: var(--good);
+    color: var(--bg);
 }
 
 #dhtmlgoodies_dragDropContainer ul li.wrongAnswer { /* Item moved to wrong box */
-    background-color: red;
-    color: #FFF;
+    background-color: var(--bad);
+    color: var(--bg);
 }
 
 
@@ -115,13 +131,13 @@ div#dhtmlgoodies_listOfItems { /* Left column "Available to students" */
 }
 
 div#dhtmlgoodies_listOfItems div {
-    border: 1px solid #999;
+    border: 1px solid var(--line);
 }
 
 div#dhtmlgoodies_listOfItems div ul { /* Left column <ul> */
     margin-left: 10px; /* Space at the left of list - the arrow will be positioned there */
     margin-right: 10px; /* Uneven sides bothered me so much */
-    background-color: #7BAD93;
+    background-color: var(--surface);
     box-sizing: border-box;
 }
 
@@ -129,15 +145,15 @@ div#dhtmlgoodies_listOfItems div ul { /* Left column <ul> */
     margin: 0px;
     font-weight: bold;
     padding-left: 0px;
-    background-color: #43AA8B;
-    color: #000000;
+    background-color: var(--line);
+    color: var(--ink);
     margin-bottom: 5px;
 }
 /* Finish the left-column rules before styling the destination column. */
 
 
 #dhtmlgoodies_dragDropContainer .mouseover { /* Mouse over effect DIV box in right column */
-    background-color: gold;
+    background-color: color-mix(in srgb, var(--brass) 14%, var(--surface));
 }
 
 /* Size and position the right-hand destination column. */
@@ -155,6 +171,13 @@ div#dhtmlgoodies_mainContainer {
     gap: 15px;
 }
 
+/* Assign the matching AI activity color to each destination category. */
+#dhtmlgoodies_mainContainer > div:nth-child(1) { --zone-color: var(--brass); }
+#dhtmlgoodies_mainContainer > div:nth-child(2) { --zone-color: var(--wood); }
+#dhtmlgoodies_mainContainer > div:nth-child(3) { --zone-color: var(--perc); }
+#dhtmlgoodies_mainContainer > div:nth-child(2).mouseover { background-color: color-mix(in srgb, var(--wood) 14%, var(--surface)); }
+#dhtmlgoodies_mainContainer > div:nth-child(3).mouseover { background-color: color-mix(in srgb, var(--perc) 14%, var(--surface)); }
+
 /* Arrange the smaller destination boxes inside their parent. */
 #dhtmlgoodies_mainContainer > div {
     float: none;
@@ -162,8 +185,8 @@ div#dhtmlgoodies_mainContainer {
     width: 170px;
     height: auto;
     margin: 15px;
-    background-color: #7BAD93;
-    border: 1px solid #999;
+    background-color: var(--surface);
+    border: 1px solid var(--zone-color, var(--line));
     box-sizing: border-box;
 }
 
@@ -173,8 +196,8 @@ div#dhtmlgoodies_mainContainer {
     margin: 0px;
     padding: 5px;
     font-weight: bold;
-    background-color: #43AA8B;
-    color: #000000;
+    background-color: var(--zone-color, var(--line));
+    color: var(--bg);
 }
 
 /* Style each destination list box in the right column. */
@@ -184,7 +207,7 @@ div#dhtmlgoodies_mainContainer {
     height: 100px;
     margin: 10px;
     padding: 5px;
-    background-color: #7BAD93;
+    background-color: var(--bg);
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -194,12 +217,12 @@ div#dhtmlgoodies_mainContainer {
     transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Hovering an item that hasn't been placed yet (placed items keep their green/red) */
+/* Hovering an item that hasn't been placed yet (placed items keep their result colors). */
 #dhtmlgoodies_dragDropContainer li:not(.correctAnswer):not(.wrongAnswer):hover {
     transform: scale(1.08);
-    background-color: Teal;
-    color: #FFFFFF;
-  border: 5px dotted gold;
+    background-color: var(--surface);
+    color: var(--ink);
+    border: 2px dotted var(--brass);
     box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
 }
 
@@ -207,11 +230,12 @@ div#dhtmlgoodies_mainContainer {
 /* Scale the in-progress draggable item while it is being moved. */
 #dragContent li {
     transform: scale(1.1);
-    background-color: #FF6F59;
+    background-color: var(--brass);
+    color: var(--bg);
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
 }
 
-/* Placed items: enlarge on hover but keep their green/red coloring */
+/* Placed items: enlarge on hover but keep their correct/incorrect colors. */
 #dhtmlgoodies_dragDropContainer ul li.correctAnswer:hover,
 #dhtmlgoodies_dragDropContainer ul li.wrongAnswer:hover {
     transform: scale(1.08);
@@ -225,9 +249,9 @@ div#dhtmlgoodies_mainContainer {
 }
 
 #resetBtn {
-    background-color: Gold;
-    color: #000;
-    border: 1px solid #000;
+    background-color: var(--brass);
+    color: var(--bg);
+    border: 1px solid var(--line);
     padding: 8px 24px;
     font-size: 16px;
     font-family: inherit;
@@ -238,13 +262,13 @@ div#dhtmlgoodies_mainContainer {
 
 #resetBtn:hover {
     transform: scale(1.5);
-    background-color: teal;
-    color: gold;
+    background-color: var(--wood);
+    color: var(--bg);
     box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* Apply the page's legacy utility style to elements using style1. */
 .style1 {
-  color: red;
+  color: var(--bad);
    font-weight: bold;
 }
