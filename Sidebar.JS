@@ -35,6 +35,15 @@
     var SIDEBAR_CSS = `
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+        /* Load the supplied display font inside this shadow-root stylesheet. */
+        @font-face {
+            font-family: 'Camiro.ttf';
+            src: url('https://cdn.jsdelivr.net/gh/baechu-rpg/treeoflife@9f2541925e9650e1640e261ee7385f0ace465ac3/Camiro.ttf') format('truetype');
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+        }
+
         /* Reset inherited page styles inside the isolated sidebar shadow root. */
         :host { all: initial; }
         /* Keep sidebar dimensions predictable and clear browser spacing defaults. */
@@ -75,6 +84,7 @@
 
         /* Center the name and subtitle at the top of the rail. */
         .sidebar-header {
+        font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
