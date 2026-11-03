@@ -1564,3 +1564,23 @@ textarea.form-input {
 
     .timeline-text { max-width: 700px; }
 }
+
+/* Keep every heading in the portfolio content at the same 32px size. */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6,
+.main-content .h2,
+.main-content .h3,
+.main-content .h4,
+.main-content .h5,
+.main-content .article-title {
+    font-size: 32px;
+}
+
+/* Preserve the original Poppins face for the service-card labels. */
+.main-content .service-item-title {
+    font-family: var(--ff-poppins);
+}

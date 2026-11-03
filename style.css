@@ -3,6 +3,16 @@
  * Page-specific stylesheets load after this file and can replace these defaults.
  */
 
+/* Register Camiro globally so the Shadow DOM sidebar can use it. */
+@font-face {
+  font-family: 'Camiro.ttf';
+  src: url('https://cdn.jsdelivr.net/gh/baechu-rpg/treeoflife@9f2541925e9650e1640e261ee7385f0ace465ac3/Camiro.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
 /* Shared dark palette and type defaults available to every page. */
 :root {
   color-scheme: dark; /* Keep native browser controls in the dark color scheme. */
@@ -13,6 +23,11 @@
   --theme-border: #3b3b36; /* Default subtle border. */
   --theme-accent: #d9a441; /* Default gold highlight. */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* System type stack used unless a page overrides it. */
+}
+
+/* Use Camiro as the default heading face; page rules can override it. */
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: 'Camiro.ttf', system-ui, sans-serif;
 }
 
 /* Use border-box sizing as a low-specificity default for page elements. */

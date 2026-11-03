@@ -35,14 +35,6 @@
     var SIDEBAR_CSS = `
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        /* Load the supplied display font inside this shadow-root stylesheet. */
-        @font-face {
-            font-family: 'Camiro.ttf';
-            src: url('https://cdn.jsdelivr.net/gh/baechu-rpg/treeoflife@9f2541925e9650e1640e261ee7385f0ace465ac3/Camiro.ttf') format('truetype');
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-        }
 
         /* Reset inherited page styles inside the isolated sidebar shadow root. */
         :host { all: initial; }
@@ -95,21 +87,28 @@
 
         .logo {
         display: flex;
+        width: 100%;
         flex-direction: column;
         align-items: center;
         gap: .2rem;
         white-space: nowrap;
         }
 
+        /* Make the sidebar name the visual heading while keeping it inside the rail. */
         .logo-name {
+        max-width: 100%;
+        white-space: normal;
+        text-align: center;
+        font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
         color: var(--text);
-        font-size: 1.2rem;
-        line-height: 1.35;
+        font-size: 3.6rem;
+        line-height: 1.05;
         font-weight: 600;
         letter-spacing: -.03em;
         }
 
         .logo-subtitle {
+        font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
         color: var(--accent);
         font-size: .75rem;
         font-weight: 500;
@@ -167,7 +166,7 @@
         }
         .sidebar-header { margin-bottom: .55rem; padding: .25rem .5rem .65rem; }
         .logo { gap: .1rem; }
-        .logo-name { font-size: 1.05rem; }
+        .logo-name { font-size: 3rem; }
         .logo-subtitle { font-size: .68rem; }
         .nav-list {
             flex-direction: row;
@@ -187,7 +186,7 @@
         /* Reduce spacing and type slightly on narrow phones. */
         @media (max-width: 480px) {
         .sidebar { padding: .65rem .75rem; }
-        .logo-name { font-size: 1rem; }
+        .logo-name { font-size: 2.7rem; }
         .nav-link { min-height: 34px; padding: .4rem .6rem; font-size: .75rem; }
         }
 
