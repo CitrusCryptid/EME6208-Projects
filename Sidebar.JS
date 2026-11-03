@@ -46,13 +46,10 @@
         .sidebar {
         --sidebar-width: 300px;
         --bg: #1e1e1e;
-        --surface: #252526;
         --border: #3c3c3c;
         --text: #d4d4d4;
         --muted: #9d9d9d;
         --accent: #007acc;
-        --accent-soft: #3794ff;
-        --mobile-nav-height: auto;
 
         font-family: 'Poppins', system-ui, -apple-system, sans-serif;
         font-size: 16px;
@@ -171,7 +168,6 @@
         }
         .sidebar-header { margin-bottom: .55rem; padding: .25rem .5rem .65rem; }
         .logo { gap: .1rem; }
-        .logo-name { font-size: 2.2rem; }
         .logo-subtitle { font-size: .9rem; }
         .nav-list {
             flex-direction: row;
@@ -194,7 +190,6 @@
         /* Reduce spacing and type slightly on narrow phones. */
         @media (max-width: 480px) {
         .sidebar { padding: .65rem .75rem; }
-        .logo-name { font-size: 2.2rem; }
         .nav-link { min-height: 34px; padding: .4rem .6rem; font-size: .75rem; }
         }
 

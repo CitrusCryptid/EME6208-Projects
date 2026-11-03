@@ -16,7 +16,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grote
 /* Center the activity and constrain its reading width. */
 main{max-width:920px;margin:0 auto;padding:28px 18px 40px}
 /* Override the shared display face with a clean system UI face for game headings. */
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 /* Align the page title, description, and score area across the header. */

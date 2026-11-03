@@ -20,13 +20,9 @@ body {
     color: var(--ink);
 }
 
-/* Style the game title and short instructions above the activity. */
-h1, h2, h3, h4, h5, h6 {
-    /* Override the shared display face with a clean system UI heading stack. */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
+/* Style the game title with the page's clean system UI heading stack. */
 h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     text-align: center;
     color: var(--ink);
 }
@@ -36,27 +32,6 @@ body > p {
     text-align: center;
     color: var(--muted);
 }
-
-/* Place the game controls and footer below the matching activity columns. */
-#footer {
-    height: 30px;
-    text-align: right;
-    clear: both;
-    padding-right: 0px;
-    background-color: var(--surface);
-    border-top: 1px solid var(--line);
-    margin: 2px auto 0;
-    width: 1000px;
-    box-sizing: border-box;
-}
-
-/* Lay out the reset action and related controls in the footer. */
-#footer form {
-    margin: 10px auto;
-    margin-top: 2px;
-}
-
-/* Hide the empty spacer so it doesn't disrupt the layout */
 
 #dhtmlgoodies_dragDropContainer { /* Main container for this script */
     width: 1000px;
