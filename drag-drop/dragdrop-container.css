@@ -235,6 +235,15 @@ div#dhtmlgoodies_mainContainer {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
 }
 
+/* Size the insertion marker and give it a small inset from the drop-box edges. */
+#dragDropIndicator img {
+    display: block;
+    width: 24px;
+    height: 24px;
+    max-width: none;
+    filter: brightness(0) invert(1);
+}
+
 /* Placed items: enlarge on hover but keep their correct/incorrect colors. */
 #dhtmlgoodies_dragDropContainer ul li.correctAnswer:hover,
 #dhtmlgoodies_dragDropContainer ul li.wrongAnswer:hover {
