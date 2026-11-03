@@ -44,7 +44,7 @@
 
         /* Draw the fixed-width, dark sidebar rail and its shared color tokens. */
         .sidebar {
-        --sidebar-width: 225px;
+        --sidebar-width: 300px;
         --bg: #1e1e1e;
         --surface: #252526;
         --border: #3c3c3c;
@@ -131,6 +131,8 @@
         .nav-link {
         display: flex;
         align-items: center;
+        width: 100%;
+        min-width: 0;
         min-height: 44px;
         padding: .7rem .85rem;
         color: var(--muted);
@@ -141,7 +143,8 @@
         font-weight: 500;
         background: rgba(255, 255, 255, .015);
         border: 1px solid transparent;
-        white-space: nowrap;
+        white-space: normal;
+        overflow-wrap: anywhere;
         }
 
         .nav-link:hover, .nav-link:focus-visible {
@@ -176,7 +179,10 @@
             justify-content: center;
             gap: .4rem;
         }
+        .nav-item { min-width: 0; }
         .nav-link {
+            width: auto;
+            white-space: normal;
             min-height: 38px;
             padding: .5rem .75rem;
             font-size: .8rem;
@@ -199,9 +205,9 @@
 
 
     // ---------- PAGE-LEVEL CSS (pushes content past the fixed sidebar) ----------
-    // Sidebar total width = 225px content + 2rem padding on each side.
+    // Match the page offset to the 300px desktop sidebar width.
     var PAGE_CSS = `
-        body { margin-left: 225px; }
+        body { margin-left: 300px; }
         @media (max-width: 768px) {
         body { margin-left: 0; }
         }
