@@ -1,6 +1,13 @@
+/* Set the legacy drag-and-drop page canvas, type, and base spacing. */
 body {
     font-family: Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif; /* Font to use */
     background-color: #254441;
+}
+
+/* Style the game title and short instructions above the activity. */
+h1, h2, h3, h4, h5, h6 {
+    /* Override the shared display face with a clean system UI heading stack. */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 h1 {
@@ -8,11 +15,13 @@ h1 {
     color: #FF6F59;
 }
 
+/* Position the introductory text beneath the title. */
 body > p {
     text-align: center;
     color: #B2B09B;
 }
 
+/* Place the game controls and footer below the matching activity columns. */
 #footer {
     height: 30px;
     text-align: right;
@@ -24,6 +33,7 @@ body > p {
     box-sizing: border-box;
 }
 
+/* Lay out the reset action and related controls in the footer. */
 #footer form {
     margin: 10px auto;
     margin-top: 2px;
@@ -88,7 +98,7 @@ li#indicateDestination { /* Box indicating where content will be dropped - i.e. 
 }
 
 
-/* LEFT COLUMN CSS */
+/* Style the left column that holds the draggable prompts and answer slots. */
 div#dhtmlgoodies_listOfItems { /* Left column "Available to students" */
     flex: 0 0 200px;
     width: 200px;
@@ -122,14 +132,14 @@ div#dhtmlgoodies_listOfItems div ul { /* Left column <ul> */
     color: #000000;
     margin-bottom: 5px;
 }
-/* END LEFT COLUMN CSS */
+/* Finish the left-column rules before styling the destination column. */
 
 
 #dhtmlgoodies_dragDropContainer .mouseover { /* Mouse over effect DIV box in right column */
     background-color: gold;
 }
 
-/* Right column DIV */
+/* Size and position the right-hand destination column. */
 div#dhtmlgoodies_mainContainer {
     float: none;
     flex: 0 0 750px;
@@ -144,7 +154,7 @@ div#dhtmlgoodies_mainContainer {
     gap: 15px;
 }
 
-/* Parent <div> of small boxes */
+/* Arrange the smaller destination boxes inside their parent. */
 #dhtmlgoodies_mainContainer > div {
     float: none;
     flex: 0 0 170px;
@@ -156,7 +166,7 @@ div#dhtmlgoodies_mainContainer {
     box-sizing: border-box;
 }
 
-/* Heading above small boxes */
+/* Style the heading above the destination boxes. */
 #dhtmlgoodies_mainContainer > div > p {
     display: block;
     margin: 0px;
@@ -166,7 +176,7 @@ div#dhtmlgoodies_mainContainer {
     color: #000000;
 }
 
-/* Small box in right column, i.e. the <ul> */
+/* Style each destination list box in the right column. */
 #dhtmlgoodies_mainContainer > div > ul {
     display: block;
     width: auto;
@@ -178,7 +188,7 @@ div#dhtmlgoodies_mainContainer {
     overflow: hidden;
 }
 
-/* ---- HOVER / DRAG EFFECT ---- */
+/* Hover and drag states for items before and after placement. */
 #dhtmlgoodies_dragDropContainer li {
     transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -193,6 +203,7 @@ div#dhtmlgoodies_mainContainer {
 }
 
 /* The item while it's being dragged (it can't be hovered because pointer-events is off) */
+/* Scale the in-progress draggable item while it is being moved. */
 #dragContent li {
     transform: scale(1.1);
     background-color: #FF6F59;
@@ -206,6 +217,7 @@ div#dhtmlgoodies_mainContainer {
     box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Position the reset area and style the reset control and hover state. */
 #resetWrap {
     text-align: center;
     margin: 10px auto;
@@ -230,6 +242,7 @@ div#dhtmlgoodies_mainContainer {
     box-shadow: 0 16px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Apply the page's legacy utility style to elements using style1. */
 .style1 {
   color: red;
    font-weight: bold;

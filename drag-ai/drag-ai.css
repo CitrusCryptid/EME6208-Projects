@@ -9,16 +9,19 @@
 }
 /* Keep anchor jumps clear of the device safe area. */
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
+/* Use border-box dimensions for every activity element. */
 *,*::before,*::after{box-sizing:inherit}
 /* Apply the activity's dark canvas and page typography. */
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.4}
 /* Center the activity and constrain its reading width. */
 main{max-width:920px;margin:0 auto;padding:28px 18px 40px}
+/* Align the page title, description, and score area across the header. */
 header{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:22px}
 h1{margin:0;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;letter-spacing:-.02em;line-height:1.05}
 .sub{margin:6px 0 0;color:var(--muted);max-width:44ch}
 /* Arrange the score counters in one compact row. */
 .score{display:flex;gap:10px}
+/* Show each score in a bordered card with a clear value and label. */
 .stat{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;min-width:92px}
 .stat b{display:block;font-size:1.6rem;font-weight:800;line-height:1.1}
 .stat span{font-size:.85rem;color:var(--muted)}
@@ -31,6 +34,7 @@ h1{margin:0;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;letter-spacing:-.
 
 /* Make each instrument a draggable, keyboard-focusable chip. */
 .chip{font:inherit;font-weight:600;font-size:1rem;padding:9px 15px;border-radius:999px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);cursor:grab;user-select:none;touch-action:manipulation}
+/* Show drag, selection, locked, error, and keyboard focus states for chips. */
 .chip:active{cursor:grabbing}
 .chip:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
 .chip.dragging{opacity:.35}
@@ -38,16 +42,19 @@ h1{margin:0;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;letter-spacing:-.
 .chip.locked{cursor:default;border-color:transparent;color:#fff}
 .chip.shake{animation:shake .35s;border-color:var(--bad);color:var(--bad)}
 @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+/* Turn off the error shake when the device requests reduced motion. */
 @media (prefers-reduced-motion:reduce){.chip.shake{animation:none}}
 
 /* Arrange the answer categories in responsive columns. */
 .zones{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+/* Stack answer categories on narrow screens. */
 @media (max-width:700px){.zones{grid-template-columns:1fr}}
 /* Style each category zone using its category color token. */
 .zone{--c:var(--ink);background:var(--surface);border:2px solid var(--c);border-radius:14px;padding:12px;min-height:200px;display:flex;flex-direction:column;gap:8px;transition:background .15s,transform .15s}
 .zone[data-cat="Brass"]{--c:var(--brass)}
 .zone[data-cat="Woodwinds"]{--c:var(--wood)}
 .zone[data-cat="Percussion"]{--c:var(--perc)}
+/* Style category titles, item layout, and drop-target feedback. */
 .zone h2{margin:0;font-size:1.3rem;font-weight:800;color:var(--c);display:flex;justify-content:space-between;align-items:baseline}
 .zone h2 small{font-size:.9rem;font-weight:600;color:var(--muted)}
 .zone.over{background:color-mix(in srgb,var(--c) 14%,var(--surface));transform:scale(1.015)}
@@ -56,6 +63,7 @@ h1{margin:0;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;letter-spacing:-.
 
 /* Align the result message and reset button below the activity. */
 .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;margin-top:26px}
+/* Keep the result message visible and make the reset control easy to use. */
 #msg{margin:0;font-weight:600;min-height:1.4em}
 button.reset{font:inherit;font-weight:800;padding:12px 26px;border-radius:10px;border:none;background:var(--ink);color:var(--bg);cursor:pointer}
 button.reset:hover{filter:brightness(1.15)}

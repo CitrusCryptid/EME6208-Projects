@@ -1,3 +1,4 @@
+/* Set the quiz page's base font and content spacing around the shared sidebar. */
 body {
     background: url("https://images.csmonitor.com/csm/2014/09/0911-gibbon-genome.jpg?alias=standard_1200x800") center / cover fixed no-repeat;
     font: 1.6rem/1.6 "Avenir Next", "Segoe UI", Arial, sans-serif;
@@ -13,6 +14,12 @@ body {
   text-shadow: 0 1px 2px #000d, 0 0 8px #0009, 0 0 20px #0006;
 }
 
+/* Use a clean system UI face for the quiz title and any semantic headings. */
+.quiz-container :is(h1, h2, h3, h4, h5, h6, th, caption, caption strong) {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Make quiz table headers and first-column labels stand out from body text. */
 .quiz-container td:first-child,
 .quiz-container th {
   color: #010101 !important;
@@ -20,7 +27,7 @@ body {
   font-weight: 700;
 }
 
-/* Typography, links, and bold elements inside the quiz */
+/* Style quiz text, emphasized answers, and link colors and interactions. */
 .quiz-container b,
 .quiz-container strong,
 .quiz-container a,
@@ -38,7 +45,7 @@ body {
 }
 
 
-/* Quiz interaction buttons */
+/* Style quiz action buttons, including hover, disabled, and focus states. */
 .quiz-container button,
 .quiz-container input[type=button] {
   color: #151a3d;
@@ -62,7 +69,7 @@ body {
   box-shadow: 0 0 20px rgba(19, 175, 240, 0.1);
 }
 
-/* Radio button sizes */
+/* Keep radio controls large enough to see and select comfortably. */
 .quiz-container input[name="theresponse"] {
   width: 60px;
   height: 60px;
@@ -72,7 +79,7 @@ body {
 
 }
 
-/* Large label option text next to bubbles */
+/* Align answer labels with the larger radio controls. */
 .quiz-container label {
   font-size: 48px;
   margin: 0 12px;
@@ -82,6 +89,7 @@ body {
   justify-content: center;
 }
 
+/* Give answer-entry fields a consistent readable surface and full-width layout. */
 .quiz-container input:not([type=button]),
 .quiz-container textarea,
 .quiz-container select {
@@ -101,6 +109,7 @@ body {
   font-family: inherit;
 }
 
+/* Keep checkboxes compact and vertically aligned with their answer labels. */
 .quiz-container input[type="checkbox"] {
   width: auto;
   height: auto;
@@ -112,6 +121,7 @@ body {
   vertical-align: middle;
 }
 
+/* Style the short solution input separately from the full-width question field. */
 .quiz-container input[name="thesolution"] {
 
   color: #000;
@@ -127,6 +137,7 @@ body {
   font-family: inherit;
 }
 
+/* Make the question editor translucent while keeping it legible on the image. */
 .quiz-container textarea[name="thequestion"] {
 
   background: rgba(255, 255, 255, 0.52);

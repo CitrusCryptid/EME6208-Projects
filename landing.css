@@ -300,7 +300,7 @@ article.active {
     z-index: -1;
 }
 
-/*ASIDE - SIDEBAR*/
+/* Sidebar panel, avatar, contact details, and expandable information styles. */
 
 .sidebar {
     margin-bottom: 15px;
@@ -444,7 +444,7 @@ article.active {
     color: var(--light-gray);
 }
 
-/*NAVBAR*/
+/* Fixed bottom navigation bar and its active and hover states. */
 
 .navbar {
     position: fixed;
@@ -483,7 +483,7 @@ article.active {
     color: var(--orange-yellow-crayola);
 }
 
-/*ABOUT*/
+/* About section typography and the service cards with their icons and labels. */
 
 .about .article-title {
     margin-bottom: 15px;
@@ -575,7 +575,7 @@ article.active {
     line-height: 1.6;
 }
 
-/*TESTIMONIALS*/
+/* Testimonial cards, author details, and horizontally scrollable list. */
 
 .testimonials {
     margin-bottom: 30px;
@@ -626,7 +626,7 @@ article.active {
     overflow: hidden;
 }
 
-/*MODAL CONTAINER*/
+/* Overlay dialog and its content when a testimonial is opened. */
 
 .modal-container {
     position: fixed;
@@ -747,7 +747,7 @@ article.active {
     line-height: 1.6;
 }
 
-/*CLIENTS*/
+/* Client logo row, sizing, and hover treatment. */
 
 .clients {
     margin-bottom: 15px;
@@ -783,7 +783,7 @@ article.active {
     filter: grayscale(0);
 }
 
-/*RESUME*/
+/* Resume timeline entries and their dates, titles, and descriptions. */
 
 .article-title {
     margin-bottom: 30px;
@@ -854,7 +854,7 @@ article.active {
     text-align: justify;
 }
 
-/*SKILLS*/
+/* Skill labels, percentage values, and progress bars. */
 
 .skills-title {
     margin-bottom: 20px;
@@ -894,7 +894,7 @@ article.active {
     border-radius: inherit;
 }
 
-/*PORTFOLIO*/
+/* Portfolio filter controls, project cards, images, and hover overlays. */
 
 .filter-list {
     display: none;
@@ -1069,7 +1069,7 @@ article.active {
     font-weight: var(--fw300);
 }
 
-/*BLOG*/
+/* Blog post cards, metadata, banners, titles, and summaries. */
 
 .blog-posts {
     margin-bottom: 10px;
@@ -1156,7 +1156,7 @@ article.active {
     text-align: justify;
 }
 
-/*CONTACT*/
+/* Contact map, form fields, validation states, and submit button. */
 
 .mapbox {
     position: relative;
@@ -1281,7 +1281,7 @@ textarea.form-input::-webkit-realizer {
     background: var(--bg-gradient-jet);
 }
 
-/*EXPERIENCE TABLE*/
+/* Experience table layout, cell typography, borders, and row hover state. */
 
 .experience {
     margin-bottom: 35px;
@@ -1401,9 +1401,10 @@ textarea.form-input::-webkit-realizer {
 
 
 
-/*MEDIA QUERIES*/
+/* Responsive layout changes for tablet, desktop, and wide screens. */
 
 @media (min-width: 450px) {
+    /* Keep client logos in a compact row on narrow screens. */
     .clients-item {
         min-width: calc(33.33% - 10px);
     }
@@ -1415,6 +1416,7 @@ textarea.form-input::-webkit-realizer {
 }
 
 @media (min-width: 580px) {
+    /* Increase type scale and switch the sidebar/main layout for tablets. */
     :root {
         --fs1: 32px;
         /* largest heading size. */
@@ -1696,6 +1698,7 @@ textarea.form-input::-webkit-realizer {
 }
 
 @media (min-width: 768px) {
+    /* Widen content and restore desktop-sized navigation and cards. */
 
     .sidebar,
     article {
@@ -1771,6 +1774,7 @@ textarea.form-input::-webkit-realizer {
 }
 
 @media (min-width: 1024px) {
+    /* Expand the page canvas and grid layouts on desktop displays. */
 
     :root {
         --shadow1: -4px 8px 24px hsla(0, 0%, 0%, .125);
@@ -1845,6 +1849,7 @@ textarea.form-input::-webkit-realizer {
 }
 
 @media (min-width: 1250px) {
+    /* Set the maximum desktop layout width and scrollbar appearance. */
 
     body::-webkit-scrollbar {
         width: 20px;
