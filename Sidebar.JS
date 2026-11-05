@@ -27,7 +27,7 @@
         { label: 'Gibbon Quiz', href: '/gibbon-quiz/' },
         { label: 'Drag & Drop - OG', href: '/drag-drop/' },
         { label: 'Drag & Drop - AI Version', href: '/drag-ai/' },
-        { label: 'Muscle Trainer Game', href: 'https://citruscryptid.github.io/AnatomyGame/' },
+        { label: 'Muscle Trainer Game', href: 'https://anatomy.bfmediasolutions.com' },
         ]
     };
 
