@@ -23,7 +23,7 @@
         subtitle: 'EdTech',
         links: [
         { label: 'Home', href: 'https://bfinkelsteinedu.carrd.co/', newTab: true },
-        { label: 'Landing', href: 'https://citruscryptid.github.io/EME6208-Projects/index.html' },
+        { label: 'Landing', href: 'https:/https://bfmediasolutions.com/index.html' },
         { label: 'Gibbon Quiz', href: 'https://citruscryptid.github.io/EME6208-Projects/gibbon-quiz/index.html' },
         { label: 'Drag & Drop - OG', href: 'https://citruscryptid.github.io/EME6208-Projects/drag-drop/index.html' },
         { label: 'Drag & Drop - AI Version', href: 'https://citruscryptid.github.io/EME6208-Projects/drag-ai/index.html' },
