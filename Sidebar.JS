@@ -73,7 +73,7 @@
 
         /* Center the name and subtitle at the top of the rail. */
         .sidebar-header {
-        font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -96,7 +96,7 @@
         max-width: none;
         white-space: nowrap;
         text-align: center;
-        font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
         color: var(--text);
         font-size: 2.2rem;
         line-height: 1.05;
@@ -106,7 +106,7 @@
         }
 
         .logo-subtitle {
-        font-family: 'Camiro.ttf', 'Poppins', system-ui, -apple-system, sans-serif;
+        font-family: 'Poppins', system-ui, -apple-system, sans-serif;
         color: var(--accent);
         font-size: 1rem;
         font-weight: 500;
